@@ -10,10 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_06_105916) do
+ActiveRecord::Schema.define(version: 2018_11_06_140558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "interests", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "question_id"
+    t.string "answer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_interests_on_user_id"
+  end
+
+  create_table "matches", force: :cascade do |t|
+    t.string "status", default: "pending"
+    t.integer "from_user_id"
+    t.integer "to_user_id"
+    t.text "instructions"
+    t.string "picture_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["from_user_id"], name: "index_matches_on_from_user_id"
+    t.index ["to_user_id"], name: "index_matches_on_to_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +44,12 @@ ActiveRecord::Schema.define(version: 2018_11_06_105916) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "username"
+    t.string "picture_url"
+    t.date "birthdate"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "interests", "users"
 end
