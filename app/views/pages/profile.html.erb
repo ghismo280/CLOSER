@@ -1,0 +1,20 @@
+<div class="profilecontainer">
+  <h1>
+    Hi! I'm <%= @user.username %>
+  </h1>
+
+  <p>
+     My birthdate: <%= @user.birthdate %>.
+  </p>
+
+  <p>
+    My email: <%= @user.email %>
+  </p>
+
+  <img src= "<%= @user.picture_url %>" alt="">
+
+  <%= image_tag @user.picture_url %>
+
+  <%= link_to image_tag @user.picture_url %>
+
+</div>
