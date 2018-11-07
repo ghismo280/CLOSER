@@ -9,10 +9,11 @@ class PagesController < ApplicationController
   end
 
   def show
+
   end
 
   def profile
     @user = current_user if current_user
   end
-  
+
 end
