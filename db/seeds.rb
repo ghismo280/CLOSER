@@ -6,11 +6,19 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+# DELETE -------------------------------
+puts 'Deleting database'
+
+Match.destroy_all
+Interest.destroy_all
+User.destroy_all
+
 # USERS ----------------------------
 
 puts "Creating users..."
 
-User.create!(
+damian = User.create!(
     username: "Damian Le Nouaille",
     picture_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/kwwqtvqbs8tb8vhhcpy2.jpg",
     birthdate: 30.years.ago,
@@ -18,7 +26,7 @@ User.create!(
     password: '123456',
   )
 
-User.create!(
+marco = User.create!(
     username: "Marco Ranieri",
     picture_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/oum9xg0ts92fabm4ticw.jpg",
     birthdate: 29.years.ago,
@@ -26,7 +34,7 @@ User.create!(
     password: '123456',
   )
 
-User.create!(
+francesco = User.create!(
     username: "Francesco Ecclesie",
     picture_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/ulwgqfs7blnmycgmowqu.jpg",
     birthdate: 28.years.ago,
@@ -34,7 +42,7 @@ User.create!(
     password: '123456',
   )
 
-User.create!(
+arbi = User.create!(
     username: "Arbi Velaj",
     picture_url: "https://media.licdn.com/dms/image/C5603AQFPQCncNKk7CQ/profile-displayphoto-shrink_200_200/0?e=1545868800&v=beta&t=XykQg1Vrf2p7pOYGlaVrdECqaqNNK8pQCsoR1wa5s7U",
     birthdate: 27.years.ago,
@@ -42,7 +50,7 @@ User.create!(
     password: '123456',
   )
 
-User.create!(
+elon = User.create!(
     username: "Elon Musk",
     picture_url: "https://thumbor.forbes.com/thumbor/200x200/filters%3Aformat%28jpg%29/https://specials-images.forbesimg.com/dam/imageserve/974773028/0x0.jpg?fit=scale",
     birthdate: 40.years.ago,
@@ -58,7 +66,7 @@ User.create!(
     password: '123456',
   )
 
-User.create!(
+bill = User.create!(
     username: "Bill Gates",
     picture_url: "https://media.licdn.com/dms/image/C5603AQHv9IK9Ts0dFA/profile-displayphoto-shrink_200_200/0?e=1542240000&v=beta&t=uO7-rCoZJ68jCnwNG76pxxdFRkI785Ys9ZTeNBzrQIE",
     birthdate: 60.years.ago,
@@ -66,7 +74,7 @@ User.create!(
     password: '123456',
   )
 
-User.create!(
+jeff = User.create!(
     username: "Jeff Besos",
     picture_url: "https://media.licdn.com/dms/image/C560BAQGbsqZVDyPAlw/company-logo_200_200/0?e=2159024400&v=beta&t=DbMQLMx4NdZ2uTPCpkW_LTWxCKuqH6HqEWkNoiLNJ7k",
     birthdate: 50.years.ago,
@@ -74,7 +82,7 @@ User.create!(
     password: '123456',
   )
 
-User.create!(
+jeff_ = User.create!(
     username: "Jeff Weiner",
     picture_url: "https://cdn.lynda.com/authors/4873327_200x200_thumb.jpg",
     birthdate: 45.years.ago,
@@ -82,7 +90,7 @@ User.create!(
     password: '123456',
   )
 
-User.create!(
+sundar = User.create!(
     username: "Sundar Pichai",
     picture_url: "https://cdn.japantimes.2xx.jp/wp-content/uploads/2018/11/b-alphabet-a-20181102-200x200.jpg",
     birthdate: 55.years.ago,
@@ -166,10 +174,45 @@ QUESTIONS = [
 puts "Creating interests..."
 
 50.times do
+  random = (0...QUESTIONS.size).to_a.sample
   Interest.create!(
     user: User.all.sample,
-    question_id: QUESTIONS[(0...QUESTIONS.size).to_a.sample],
-    answer: [true,false].sample
+    question_id: random,
+    answer: QUESTIONS[random][:display]
   )
 end
 
+
+# MATCHES -----------------------------
+
+puts "Creating matches"
+
+Match.create!(
+    from_user: marco,
+    to_user: francesco
+    )
+
+Match.create!(
+    from_user: marco,
+    to_user: arbi
+    )
+
+Match.create!(
+    from_user: damian,
+    to_user: marco
+    )
+
+Match.create!(
+    from_user: jeff,
+    to_user: marco
+    )
+
+Match.create!(
+    from_user: elon,
+    to_user: marco
+    )
+
+Match.create!(
+    from_user: jeff_,
+    to_user: marco
+    )
