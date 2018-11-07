@@ -166,10 +166,11 @@ QUESTIONS = [
 puts "Creating interests..."
 
 50.times do
+  random = (0...QUESTIONS.size).to_a.sample
   Interest.create!(
     user: User.all.sample,
-    question_id: QUESTIONS[(0...QUESTIONS.size).to_a.sample],
-    answer: [true,false].sample
+    question_id: random,
+    answer: QUESTIONS[random][:display]
   )
 end
 
