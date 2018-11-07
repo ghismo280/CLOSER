@@ -1,20 +1,36 @@
 <div class="profilecontainer">
   <h1>
-    Hi! I'm <%= @user.username %>
+    Profile
   </h1>
 
-  <p>
-     My birthdate: <%= @user.birthdate %>.
-  </p>
+  <div class="avatar">
+    <%= image_tag @user.picture_url %>
+  </div>
 
-  <p>
-    My email: <%= @user.email %>
-  </p>
+  <div class="info">
+    <h2>
+      Hi! I'm <%= @user.username %>
+    </h2>
 
-  <img src= "<%= @user.picture_url %>" alt="">
+    <p>
+      My birthdate: <%= @user.birthdate %>.
+    </p>
 
-  <%= image_tag @user.picture_url %>
+    <p>
+      My email: <%= @user.email %>
+    </p>
+  </div>
 
-  <%= link_to image_tag @user.picture_url %>
+  <div class="interests">
+    <ul>
+      <% @user.valid_interest.each do |interest| %>
+      <li>
+        <%= Interest::QUESTIONS[interest.question_id][:display] %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <button type="button" class="btn btn-success">Invite</button>
 
 </div>
