@@ -4,8 +4,8 @@ class PagesController < ApplicationController
   def home
   end
 
-
   def index
+   @users = User.all
   end
 
   def show
@@ -14,4 +14,5 @@ class PagesController < ApplicationController
   def profile
     @user = current_user if current_user
   end
+  
 end
