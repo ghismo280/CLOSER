@@ -14,5 +14,9 @@ class PagesController < ApplicationController
   def profile
     @user = current_user if current_user
   end
-  
+
+  def matches
+    @matches = Match.all
+  end
+
 end
