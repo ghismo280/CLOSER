@@ -1,4 +1,5 @@
 <style>
+
   .card {
     height: 175px;
     text-shadow: 0 1px 3px rgba(0,0,0,0.6);
@@ -6,30 +7,15 @@
     background-position: center;
     color: white;
     position: relative;
+    margin: 0 auto;
   }
-  .card-user {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    width: 40px;
-    border-radius: 4%;
-    display: flex;
-  }
-  .card-category {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 15px;
-    text-transform: uppercase;
-  }
-  .card-description {
+
+  .card-username {
     position: absolute;
     bottom: 10px;
     left: 10px;
   }
-  .card-description h2 {
-    font-size: 24px;
-  }
+
   .card-description p {
     font-size: 30px;
     opacity: 0.7;
@@ -46,25 +32,22 @@
     background: black;
     opacity: 0;
   }
-  .card-link:hover {
-    opacity: 0.1;
-  }
+
 </style>
 
-<div class="container">
+
   <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-        <div class="card-description">
-          <% @users.each do |user| %>
-          <% "#{user.username}" %>
-          <% end %>
+          <h2> <% @users.each do |user| %></h2>
+    <div class="col-xs-6 col-sm-4 col-md-3">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), <%= image_tag user.picture_url %>
+        <div class="card-username">
+          <%= "#{user.username}, #{Date.today.year - user.birthdate.year}" %>
           <p>engage</p>
         </div>
-        <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+        <%= image_tag user.picture_url %>
         <a class="card-link" href="#" ></a>
       </div>
     </div>
+          <% end %>
   </div>
-</div>
 
