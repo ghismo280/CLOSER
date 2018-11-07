@@ -1,13 +1,12 @@
-<div class="navbar">
-
+<div class="center">
+  <div class="navbar-main">
+    <%= link_to('Matches','/matches',class:"btn btn-primary") %>
+  </div>
+  <div>
+    <%= link_to('Discover','/pages',class:"btn btn-primary") %>
+  </div>
+  <div>
+    <%= link_to('My profile','/profile',class:"btn btn-primary") %>
+  </div>
 </div>
-
-
-
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png", height: 50 %>
-
-      <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-
 
