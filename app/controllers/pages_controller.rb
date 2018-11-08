@@ -13,7 +13,7 @@ class PagesController < ApplicationController
   end
 
   def profile
-    @user = current_user if current_user
+    @user = User.find(params[:id])
   end
 
   def matches
@@ -23,7 +23,7 @@ class PagesController < ApplicationController
   def choose
     @match = Match.new(from_user: current_user, to_user: User.find(params[:num]))
     if @match.save!
-      redirect_to pages_index_path
+      redirect_to matches_path
     end
   end
 end

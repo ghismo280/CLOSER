@@ -32,10 +32,11 @@
     </ul>
   </div>
 
-
-  <%= link_to choose_path(num: 5), method: :post do %>
+<% if params[:id].to_i != current_user.id %>
+  <%= link_to choose_path(num: params[:id]), method: :post do %>
   <button type="button" class="btn btn-success">Invite</button>
   <% end %>
+<% end %>
 
   <%= link_to destroy_user_session_path do %>
   <button type="button" class="btn btn-danger">Log Out</button>

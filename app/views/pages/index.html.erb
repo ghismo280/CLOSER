@@ -46,7 +46,7 @@
         </div>
         <%= image_tag user.picture_url if user.picture_url %>
         <%= cl_image_tag user.photo, height: 100, width: 100, crop: :fill if user.photo%>
-        <a class="card-link" href="#" ></a>
+        <a class="card-link" href="/profile/<%= user.id %>" ></a>
       </div>
     </div>
           <% end %>
