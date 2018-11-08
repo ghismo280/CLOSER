@@ -2,7 +2,6 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def home
-    @disable_nav = true
   end
 
   def index
@@ -14,11 +13,17 @@ class PagesController < ApplicationController
   end
 
   def profile
-    @user = current_user if current_user
+    @user = User.find(params[:id])
   end
 
   def matches
     @matches = Match.all
   end
 
+  def choose
+    @match = Match.new(from_user: current_user, to_user: User.find(params[:num]))
+    if @match.save!
+      redirect_to matches_path
+    end
+  end
 end
