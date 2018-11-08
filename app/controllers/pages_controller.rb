@@ -20,4 +20,10 @@ class PagesController < ApplicationController
     @matches = Match.all
   end
 
+  def choose
+    @match = Match.new(from_user: current_user, to_user: User.find(params[:num]))
+    if @match.save!
+      redirect_to pages_index_path
+    end
+  end
 end
