@@ -44,7 +44,8 @@
           <%= "#{user.username}, #{Date.today.year - user.birthdate.year}" %>
           <p>engage</p>
         </div>
-        <%= image_tag user.picture_url %>
+        <%= image_tag user.picture_url if user.picture_url %>
+        <%= cl_image_tag user.photo, height: 300, width: 400, crop: :fill %>
         <a class="card-link" href="#" ></a>
       </div>
     </div>

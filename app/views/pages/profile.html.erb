@@ -4,7 +4,7 @@
   </h1>
 
   <div class="avatar">
-    <%= image_tag @user.picture_url %>
+    <%= image_tag @user.picture_url if @user.picture_url%>
   </div>
 
   <div class="info">
