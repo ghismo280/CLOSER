@@ -2,6 +2,31 @@
   <br>
 
 
+
+
+<% if !@matches_from_logged.empty? %>
+<h1>Matches_pending</h1>
+<% end %>
+
+<% @matches_from_logged.each do |lol| %>
+  <%= cl_image_tag lol.to_user.photo%>
+  <a href="/profile/<%= lol.to_user.id %>" ><%= lol.to_user.username %></a>
+
+  <div class="center">
+  <%= link_to accept_path(id: lol.to_user.id), method: :post do %>
+    <div class="center">
+      <button type="button" class="btn btn-success">Accept</button>
+    </div>
+  <% end %>
+  <%= link_to decline_path(id: lol.to_user.id), method: :post do %>
+    <div class="center">
+      <button type="button" class="btn btn-success">Decline</button>
+    </div>
+  <% end %>
+ </div>
+<% end %>
+
+
 <% if !@matches_to_logged.empty? %>
 <h1>Requests</h1>
 <% end %>
@@ -10,15 +35,4 @@
 <%= cl_image_tag lol.from_user.photo
  %>        <a href="/profile/<%= lol.from_user.id %>" ><%= lol.from_user.username %></a>
           <% end %>
-
-
-<% if !@matches_from_logged.empty? %>
-<h1>Matches_pending</h1>
-<% end %>
-
-          <% @matches_from_logged.each do |lol| %>
-<%= cl_image_tag lol.to_user.photo
- %>        <a href="/profile/<%= lol.to_user.id %>" ><%= lol.to_user.username %></a>
-          <% end %>
-
 

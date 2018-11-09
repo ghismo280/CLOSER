@@ -4,6 +4,11 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :username,
+                required: true%>
+    <%= f.input :birthdate,
+                required: true,
+                start_year: 1899%>
     <%= f.input :email,
                 required: true,
                 autofocus: true ,

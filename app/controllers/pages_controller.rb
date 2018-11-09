@@ -27,4 +27,18 @@ class PagesController < ApplicationController
       redirect_to matches_path
     end
   end
+
+  def accept
+    mat = Match.where(from_user: current_user, to_user: User.find(params[:id])).first
+    mat.status = 'accepted'
+      if mat.save!
+      redirect_to "/"
+    end
+  end
+
+  def decline
+    mat = Match.where(from_user: current_user, to_user: User.find(params[:id])).first
+    mat.destroy
+    redirect_to "/matches"
+  end
 end
