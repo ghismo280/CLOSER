@@ -1,3 +1,16 @@
+
+<h1>Matches</h1>
+<ol>
+<% @matches.each do |match| %>
+  <li>
+    <%= match %>
+    <%= match.from_user.username %> matched with <%= match.to_user.username %>
+  </li>
+<% end %>
+</ol>
+
+
+
 <!-- <h1>Matches</h1>
 
           <h2> <% @matches.each do |lol| %></h2>
@@ -5,3 +18,4 @@
  %>        <a class="card-link" href="/profile/<%= lol.from_user.id %>" ><%= lol.from_user.username %></a>
           <% end %>
  -->
+
