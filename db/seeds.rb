@@ -110,11 +110,13 @@ puts "Creating interests..."
 User.all.each do |user|
   5.times do
     random = (0...Interest::QUESTIONS.size).to_a.sample
-    Interest.create!(
-      user: user,
-      question_id: random,
-      answer: "true",
-    )
+    if Interest.where(user: user, question_id:random).empty?
+      Interest.create!(
+        user: user,
+        question_id: random,
+        answer: "true",
+      )
+    end
   end
 end
 
