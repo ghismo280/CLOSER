@@ -29,16 +29,16 @@ class PagesController < ApplicationController
   end
 
   def accept
-    mat = Match.where(from_user: current_user, to_user: User.find(params[:id])).first
-    mat.status = 'accepted'
-      if mat.save!
+    m = Match.where(from_user: User.find(params[:id]), to_user: current_user).first
+    m.status = 'accepted'
+      if m.save!
       redirect_to "/"
     end
   end
 
   def decline
-    mat = Match.where(from_user: current_user, to_user: User.find(params[:id])).first
-    mat.destroy
+    m = Match.where(from_user: User.find(params[:id]), to_user: current_user).first
+    m.destroy
     redirect_to "/matches"
   end
 end
