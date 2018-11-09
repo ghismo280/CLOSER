@@ -42,7 +42,7 @@
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), <%= image_tag user.picture_url if user.picture_url %>"
         <div class="card-username">
           <%= "#{user.username}, #{Date.today.year - user.birthdate.year}" if user.birthdate %>
-          <p>engage</p>
+
         </div>
         <%= image_tag user.picture_url if user.picture_url %>
         <%= cl_image_tag user.photo, height: 100, width: 100, crop: :fill if user.photo%>
