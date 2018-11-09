@@ -1,12 +1,33 @@
 <div class="profilecontainer">
-  <h1>
-    Profile
-  </h1>
+  <br>
+  <br>
 
   <div class="avatar">
     <%= image_tag @user.picture_url if @user.picture_url%>
     <%= cl_image_tag @user.photo, height: 300, width: 400, crop: :fill, gravity: :face %>
   </div>
+
+<% if params[:id].to_i != current_user.id %>
+
+  <%= link_to choose_path(num: params[:id]), method: :post do %>
+  <div class="center">
+    <button type="button" class="btn btn-success">Invite</button>
+  </div>
+  <% end %>
+
+  <% else %>
+
+  <%= link_to destroy_user_session_path do %>
+  <div class="center">
+    <button type="button" class="btn btn-danger">Log Out</button>
+  </div>
+  <% end %>
+
+<% end %>
+
+
+</div>
+
 
   <div class="info">
     <h2>
@@ -32,14 +53,3 @@
     </ul>
   </div>
 
-<% if params[:id].to_i != current_user.id %>
-  <%= link_to choose_path(num: params[:id]), method: :post do %>
-  <button type="button" class="btn btn-success">Invite</button>
-  <% end %>
-<% end %>
-
-  <%= link_to destroy_user_session_path do %>
-  <button type="button" class="btn btn-danger">Log Out</button>
-  <% end %>
-
-</div>
