@@ -17,7 +17,8 @@ class PagesController < ApplicationController
   end
 
   def matches
-    @matches = Match.where(to_user: current_user)
+    @matches_from_logged = Match.where(from_user: current_user)
+    @matches_to_logged = Match.where(to_user: current_user)
   end
 
   def choose
@@ -25,5 +26,19 @@ class PagesController < ApplicationController
     if @match.save!
       redirect_to matches_path
     end
+  end
+
+  def accept
+    mat = Match.where(from_user: current_user, to_user: User.find(params[:id])).first
+    mat.status = 'accepted'
+      if mat.save!
+      redirect_to "/"
+    end
+  end
+
+  def decline
+    mat = Match.where(from_user: current_user, to_user: User.find(params[:id])).first
+    mat.destroy
+    redirect_to "/matches"
   end
 end
