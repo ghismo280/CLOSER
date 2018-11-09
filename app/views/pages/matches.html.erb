@@ -1,3 +1,4 @@
+
 <h1>Matches</h1>
 <ol>
 <% @matches.each do |match| %>
@@ -8,4 +9,13 @@
 <% end %>
 </ol>
 
+
+
+<!-- <h1>Matches</h1>
+
+          <h2> <% @matches.each do |lol| %></h2>
+<%= cl_image_tag lol.from_user.photo
+ %>        <a class="card-link" href="/profile/<%= lol.from_user.id %>" ><%= lol.from_user.username %></a>
+          <% end %>
+ -->
 
