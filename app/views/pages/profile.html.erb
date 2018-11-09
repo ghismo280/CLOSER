@@ -11,13 +11,17 @@
 <% if params[:id].to_i != current_user.id %>
 
   <%= link_to choose_path(num: params[:id]), method: :post do %>
-  <button type="button" class="btn btn-success">Invite</button>
+  <div class="center">
+    <button type="button" class="btn btn-success">Invite</button>
+  </div>
   <% end %>
 
   <% else %>
 
   <%= link_to destroy_user_session_path do %>
-  <button type="button" class="btn btn-danger">Log Out</button>
+  <div class="center">
+    <button type="button" class="btn btn-danger">Log Out</button>
+  </div>
   <% end %>
 
 <% end %>
