@@ -1,21 +1,24 @@
+  <h1 class="text-center">MATCHES</h1>
+  <br>
 
-<h1>Matches</h1>
-<ol>
-<% @matches.each do |match| %>
-  <li>
-    <%= match %>
-    <%= match.from_user.username %> matched with <%= match.to_user.username %>
-  </li>
+
+<% if !@matches_to_logged.empty? %>
+<h1>Requests</h1>
 <% end %>
-</ol>
 
-
-
-<!-- <h1>Matches</h1>
-
-          <h2> <% @matches.each do |lol| %></h2>
+          <% @matches_to_logged.each do |lol| %>
 <%= cl_image_tag lol.from_user.photo
- %>        <a class="card-link" href="/profile/<%= lol.from_user.id %>" ><%= lol.from_user.username %></a>
+ %>        <a href="/profile/<%= lol.from_user.id %>" ><%= lol.from_user.username %></a>
           <% end %>
- -->
+
+
+<% if !@matches_from_logged.empty? %>
+<h1>Matches_pending</h1>
+<% end %>
+
+          <% @matches_from_logged.each do |lol| %>
+<%= cl_image_tag lol.to_user.photo
+ %>        <a href="/profile/<%= lol.to_user.id %>" ><%= lol.to_user.username %></a>
+          <% end %>
+
 

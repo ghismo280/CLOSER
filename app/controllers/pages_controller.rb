@@ -17,7 +17,8 @@ class PagesController < ApplicationController
   end
 
   def matches
-    @matches = Match.where(to_user: current_user)
+    @matches_from_logged = Match.where(from_user: current_user)
+    @matches_to_logged = Match.where(to_user: current_user)
   end
 
   def choose
