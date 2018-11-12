@@ -8,6 +8,7 @@ end
 def show
   @user = User.find(params[:id])
   @m = Match.where(from_user: User.find(params[:id]), to_user: current_user).first
+  @match_sent = Match.where(from_user: current_user, to_user: User.find(params[:id])).first
 end
 
 def invite

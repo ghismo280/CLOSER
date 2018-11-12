@@ -31,9 +31,7 @@
 
 
 
-<% elsif params[:id].to_i != current_user.id %>
-
-
+<% elsif params[:id].to_i != current_user.id && @match_sent == nil %>
 
   <%= link_to matches_path(num: params[:id]), method: :post do %>
   <div class="center">
@@ -43,7 +41,7 @@
 
 
 
-<% else %>
+<% elsif params[:id].to_i == current_user.id %>
 
 
 
