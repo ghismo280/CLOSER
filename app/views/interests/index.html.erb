@@ -1,0 +1,24 @@
+<h1>Interests</h1>
+
+<%= form_tag interests_path do |f|  %>
+<h3>Choose your interests</h3>
+
+    <% counter = 0 %>
+      <% Interest::QUESTIONS.each do |question| %>
+      <div>
+
+          <%= question[:question] %>
+
+          <input type="radio" id="questions_<%= counter %>" name="questions[<%= counter %>]" value="true">
+          <label for="questions_<%= counter %>">Yes</label>
+
+          <input type="radio" name="questions[<%= counter %>]" value="false">
+          <label for="questions_<%= counter %>">No</label>
+
+        <% counter += 1 %>
+      </div>
+      <% end %>
+
+
+  <input type="submit" value="Save">
+<% end %>
