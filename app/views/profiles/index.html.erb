@@ -33,12 +33,18 @@
     opacity: 0;
   }
 
+/*  .no-gutter > [class*='col-'] {
+      padding-right:0;
+      padding-left:0;
+  }*/
+
 </style>
 
 
   <div class="row">
           <h2> <% @users.each do |user| %></h2>
           <% if user != current_user %>
+    
     <div class="col-xs-6 col-sm-4 col-md-3">
       <div class="card" style='background-image: url(<%= user.photo ? cl_image_path(user.photo) : "http" %>)'>
 
