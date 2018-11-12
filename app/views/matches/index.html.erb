@@ -35,8 +35,10 @@
 <% end %>
 
           <% @matches_from_logged.each do |lol| %>
-<%= cl_image_tag lol.to_user.photo
- %>        <a href="<%= profile_path(lol.to_user.id) %>" ><%= lol.to_user.username %></a>
+          <div class="center">
+        <a href="<%= profile_path(lol.to_user.id) %>" ><%= cl_image_tag lol.to_user.photo, height: 250, width: 250, crop: :fill, gravity: :face %>
+</div>
+ <%= lol.to_user.username %></a>
           <% end %>
 
 
