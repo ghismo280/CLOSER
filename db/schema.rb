@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_12_114050) do
+ActiveRecord::Schema.define(version: 2018_11_12_135401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2018_11_12_114050) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"
+    t.string "imgmessage"
     t.index ["from_user_id"], name: "index_matches_on_from_user_id"
     t.index ["to_user_id"], name: "index_matches_on_to_user_id"
   end
