@@ -12,18 +12,14 @@ class MatchesController < ApplicationController
     end
   end
 
-  def accept
+  def update
     m = Match.where(from_user: User.find(params[:id]), to_user: current_user).first
-    m.status = 'accepted'
-    id_user = params[:id].to_i
-      if m.save!
-      redirect_to "/profiles/#{id_user}"
+    m.status = params[:status]
+    m.save!
+    if m.accepted?
+      redirect_to profile_path(m.from_user_id)
+    else
+      redirect_to matches_path
     end
-  end
-
-  def decline
-    m = Match.where(from_user: User.find(params[:id]), to_user: current_user).first
-    m.status = 'declined'
-    redirect_to "/matches"
   end
 end
