@@ -1,7 +1,8 @@
 class ProfilesController < ApplicationController
 
 def index
-  @users = User.all
+  users_like_me = User.like_me(current_user)
+  @users = User.near_me(users_like_me, current_user)
 end
 
 def show
