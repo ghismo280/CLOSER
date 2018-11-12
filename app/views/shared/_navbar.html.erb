@@ -5,13 +5,13 @@
     <% end %>
   </div>
   <div>
-    <%= link_to '/pages/index' do %>
+    <%= link_to profiles_path do %>
     <%= image_tag "logo-closer.svg", class: "logo" %>
     <p class="text-center">DISCOVER</p>
     <% end %>
   </div>
   <div>
-    <%= link_to "/profile/#{current_user.id}", class: "profile" do %>
+    <%= link_to "/profiles/#{current_user.id}", class: "profile" do %>
     <i class="far fa-user user-bar"></i>
     <% end %>
   </div>
