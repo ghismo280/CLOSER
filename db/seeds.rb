@@ -58,7 +58,7 @@ elon = User.create!(
     password: '123456',
   )
 
-User.create!(
+steve = User.create!(
     username: "Steve Jobs",
     remote_photo_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRen3hG7WFTdhQNU1q7D4bWLfoq5CcJtlXYJqlHoqq_SQNUn9i3",
     birthdate: 50.years.ago,

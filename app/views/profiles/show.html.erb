@@ -28,6 +28,18 @@
 
 </div>
 
+<% if @m && @m.status == 'accepted' %>
+  <%= simple_form_for(@m) do |f| %>
+    <!-- [...] -->
+    <%= f.input :imgmessage %>
+    <%= f.input :imgmessage_cache, as: :hidden %>
+    <%= f.hidden_field :from_user_number, value: params[:id] %>
+    <!-- [...] -->
+    <%= f.submit %>
+  <% end %>
+
+
+<% end %>
 
   <div class="info">
     <h2>
