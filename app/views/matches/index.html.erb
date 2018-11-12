@@ -11,12 +11,12 @@
   <a href="/profile/<%= lol.from_user.id %>" ><%= lol.from_user.username %></a>
 
   <div class="center">
-  <%= link_to accept_path(id: lol.from_user.id), method: :post do %>
+  <%= link_to matches_accept_path(id: lol.from_user.id), method: :post do %>
     <div class="center">
       <button type="button" class="btn btn-success">Accept</button>
     </div>
   <% end %>
-  <%= link_to decline_path(id: lol.from_user.id), method: :post do %>
+  <%= link_to matches_decline_path(id: lol.from_user.id), method: :post do %>
     <div class="center">
       <button type="button" class="btn btn-success">Decline</button>
     </div>

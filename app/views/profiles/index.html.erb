@@ -59,7 +59,7 @@
         <div class="card-username">
           <%= "#{user.username}, #{Date.today.year - user.birthdate.year}" if user.birthdate %>
         </div>
-        <a class="card-link" href="/profile/<%= user.id %>" ></a>
+        <a class="card-link" href="/profiles/<%= user.id %>" ></a>
       </div>
     </div>
     <% end %>
