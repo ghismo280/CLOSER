@@ -8,15 +8,15 @@
 
 <% @matches_to_logged.each do |lol| %>
   <%= cl_image_tag lol.from_user.photo%>
-  <a href="/profile/<%= lol.from_user.id %>" ><%= lol.from_user.username %></a>
+  <a href="<%= profile_path(lol.from_user.id) %>" ><%= lol.from_user.username %></a>
 
   <div class="center">
-  <%= link_to matches_accept_path(id: lol.from_user.id), method: :post do %>
+  <%= link_to match_path(match: {from_user_number: lol.from_user.id }, status: "accepted", id: lol.from_user.id), method: :patch do %>
     <div class="center">
       <button type="button" class="btn btn-success">Accept</button>
     </div>
   <% end %>
-  <%= link_to matches_decline_path(id: lol.from_user.id), method: :post do %>
+  <%= link_to match_path(match: {from_user_number: lol.from_user.id }, status: "declined", id: lol.from_user.id), method: :patch do %>
     <div class="center">
       <button type="button" class="btn btn-success">Decline</button>
     </div>
@@ -31,7 +31,7 @@
 
           <% @matches_from_logged.each do |lol| %>
 <%= cl_image_tag lol.to_user.photo
- %>        <a href="/profile/<%= lol.to_user.id %>" ><%= lol.to_user.username %></a>
+ %>        <a href="<%= profile_path(lol.to_user.id) %>" ><%= lol.to_user.username %></a>
           <% end %>
 
 

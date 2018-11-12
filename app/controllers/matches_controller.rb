@@ -13,13 +13,19 @@ class MatchesController < ApplicationController
   end
 
   def update
-    m = Match.where(from_user: User.find(params[:id]), to_user: current_user).first
-    m.status = params[:status]
-    m.save!
-    if m.accepted?
-      redirect_to profile_path(m.from_user_id)
+    @m = Match.where(from_user: User.find(params[:match][:from_user_number]), to_user: current_user).first
+    @m.status = params[:status] if params[:status]
+    @m.save!
+    if @m.accepted?
+      redirect_to profile_path(@m.from_user_id)
     else
       redirect_to matches_path
     end
   end
+
+  private
+
+  def match_params
+  params.require(:match).permit(:status, :imgmessage)
+end
 end
