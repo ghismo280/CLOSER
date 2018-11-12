@@ -1,3 +1,24 @@
+
+
+<div class="row">
+        <h2> <% @users.each do |user| %></h2>
+        <% if user != current_user %>
+
+  <div class="col-xs-6 col-sm-4 col-md-3" style="padding: 0; margin: 0;">
+    <div class="card" style='background-image: url(<%= user.photo ? cl_image_path(user.photo) : "http" %>)'>
+
+      <div class="card-username">
+        <%= "#{user.username}, #{Date.today.year - user.birthdate.year}" if user.birthdate %>
+      </div>
+      <a class="card-link" href="/profiles/<%= user.id %>" ></a>
+    </div>
+  </div>
+  <% end %>
+        <% end %>
+</div>
+
+
+
 <style>
 
   .card {
@@ -33,27 +54,5 @@
     opacity: 0;
   }
 
-/*  .no-gutter > [class*='col-'] {
-      padding-right:0;
-      padding-left:0;
-  }*/
-
 </style>
 
-
-  <div class="row">
-          <h2> <% @users.each do |user| %></h2>
-          <% if user != current_user %>
-    
-    <div class="col-xs-6 col-sm-4 col-md-3">
-      <div class="card" style='background-image: url(<%= user.photo ? cl_image_path(user.photo) : "http" %>)'>
-
-        <div class="card-username">
-          <%= "#{user.username}, #{Date.today.year - user.birthdate.year}" if user.birthdate %>
-        </div>
-        <a class="card-link" href="/profiles/<%= user.id %>" ></a>
-      </div>
-    </div>
-    <% end %>
-          <% end %>
-  </div>

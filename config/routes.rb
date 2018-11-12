@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "users/registrations"}
+
   root to: 'pages#home'
   resources :matches, only: [:index, :create, :update]
   resources :interests, only: [:index, :create]

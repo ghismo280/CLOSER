@@ -10,9 +10,22 @@
 # DELETE -------------------------------
 puts 'Deleting database'
 
-Match.destroy_all
-Interest.destroy_all
-User.destroy_all
+Match.delete_all
+Interest.delete_all
+User.delete_all
+
+
+# This is a way to generate random coordinates in a certain range (padding)
+HERE = [45.465803, 9.174176]
+PADDING = 0.5
+
+def generate_coordinate
+  latitudes = [HERE[0] - rand(0..PADDING), HERE[0] + rand(0..PADDING)]
+  longitudes = [HERE[1] - rand(0..PADDING), HERE[1] + rand(0..PADDING)]
+
+  [latitudes.sample, longitudes.sample]
+end
+
 
 # USERS ----------------------------
 
@@ -24,6 +37,8 @@ damian = User.create!(
     birthdate: 30.years.ago,
     email: "a@closerapp.life",
     password: '123456',
+    latitude: generate_coordinate[0],
+    longitude: generate_coordinate[1],
   )
 
 marco = User.create!(
@@ -32,6 +47,8 @@ marco = User.create!(
     birthdate: 29.years.ago,
     email: "b@closerapp.life",
     password: '123456',
+    latitude: generate_coordinate[0],
+    longitude: generate_coordinate[1],
   )
 
 francesco = User.create!(
@@ -40,6 +57,8 @@ francesco = User.create!(
     birthdate: 28.years.ago,
     email: "c@closerapp.life",
     password: '123456',
+    latitude: generate_coordinate[0],
+    longitude: generate_coordinate[1],
   )
 
 arbi = User.create!(
@@ -48,6 +67,8 @@ arbi = User.create!(
     birthdate: 27.years.ago,
     email: "d@closerapp.life",
     password: '123456',
+    latitude: generate_coordinate[0],
+    longitude: generate_coordinate[1],
   )
 
 elon = User.create!(
@@ -56,6 +77,8 @@ elon = User.create!(
     birthdate: 40.years.ago,
     email: "e@closerapp.life",
     password: '123456',
+    latitude: generate_coordinate[0],
+    longitude: generate_coordinate[1],
   )
 
 steve = User.create!(
@@ -64,6 +87,8 @@ steve = User.create!(
     birthdate: 50.years.ago,
     email: "f@closerapp.life",
     password: '123456',
+    latitude: generate_coordinate[0],
+    longitude: generate_coordinate[1],
   )
 
 bill = User.create!(
@@ -72,6 +97,8 @@ bill = User.create!(
     birthdate: 60.years.ago,
     email: "g@closerapp.life",
     password: '123456',
+    latitude: generate_coordinate[0],
+    longitude: generate_coordinate[1],
   )
 
 jeff = User.create!(
@@ -80,6 +107,8 @@ jeff = User.create!(
     birthdate: 50.years.ago,
     email: "h@closerapp.life",
     password: '123456',
+    latitude: generate_coordinate[0],
+    longitude: generate_coordinate[1],
   )
 
 jeff_ = User.create!(
@@ -88,6 +117,8 @@ jeff_ = User.create!(
     birthdate: 45.years.ago,
     email: "i@closerapp.life",
     password: '123456',
+    latitude: generate_coordinate[0],
+    longitude: generate_coordinate[1],
   )
 
 sundar = User.create!(
@@ -96,6 +127,8 @@ sundar = User.create!(
     birthdate: 55.years.ago,
     email: "j@closerapp.life",
     password: '123456',
+    latitude: generate_coordinate[0],
+    longitude: generate_coordinate[1],
   )
 
 # QUESTIONS ----------------------------
