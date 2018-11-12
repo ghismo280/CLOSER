@@ -7,7 +7,7 @@ def create
 
 end
 
-def delete
+# def delete
 
-end
+# end
 end
