@@ -9,7 +9,7 @@ def create
     Interest.create!(question_id: question_id, answer: answer, user: current_user)
   end
 
-  redirect_to profiles_path
+  redirect_to profile_path(@current_user)
 end
 
 # def delete
