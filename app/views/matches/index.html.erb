@@ -10,7 +10,9 @@
   <%= cl_image_tag lol.from_user.photo%>
   <a href="<%= profile_path(lol.from_user.id) %>" ><%= lol.from_user.username %></a>
 
+
   <div class="center">
+  <% if lol.status == "pending" %>
   <%= link_to match_path(match: {from_user_number: lol.from_user.id }, status: "accepted", id: lol.from_user.id), method: :patch do %>
     <div class="center">
       <button type="button" class="btn btn-success">Accept</button>
@@ -21,7 +23,10 @@
       <button type="button" class="btn btn-success">Decline</button>
     </div>
   <% end %>
+  <% end %>
  </div>
+
+
 <% end %>
 
 
