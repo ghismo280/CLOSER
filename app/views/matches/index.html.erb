@@ -7,7 +7,7 @@
 <% end %>
 
 <% @matches_to_logged.each do |lol| %>
-  <%= cl_image_tag lol.from_user.photo%>
+  <%= cl_image_tag lol.from_user.photo, height: 250, width: 250, crop: :fill, gravity: :face %>
   <a href="<%= profile_path(lol.from_user.id) %>" ><%= lol.from_user.username %></a>
 
 
