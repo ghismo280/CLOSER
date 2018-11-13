@@ -15,7 +15,6 @@
   <div class= "bday">
     <p>
     Born on <%= @user.birthdate %>.
-
     </p>
 
     <% if params[:id].to_i == current_user.id %>
@@ -25,8 +24,10 @@
     <% end %>
   </div>
 </div>
+
 <br>
 <br>
+
 <div class="currentinterests" style="text-align: center; font-weight: bold;">
   <% if params[:id].to_i == current_user.id %>
     YOUR CURRENT INTERESTS
