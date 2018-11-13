@@ -35,14 +35,6 @@
 
 </style>
 
-<div class="form-inputs">
-  <%= simple_form_for(f, as: current_user)
-  <%= f.input :latitude, as: :hidden %>
-  <%= f.input :longitude, as: :hidden %>
-</div>
-<div class="form-actions">
-  <%= f.button :submit, "Update my Geolocation", id: "button_signup_user", class: 'btn btn-primary', disabled: "disabled" %>
-</div>
 
   <div class="row">
           <h2> <% @users.each do |user| %></h2>
