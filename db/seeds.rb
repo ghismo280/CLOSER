@@ -131,17 +131,12 @@ sundar = User.create!(
     longitude: generate_coordinate[1],
   )
 
-# QUESTIONS ----------------------------
-
-puts "Creating questions..."
-
-
 # INTERESTS ----------------------------
 
 puts "Creating interests..."
 
 User.all.each do |user|
-  5.times do
+  10.times do
     random = (0...Interest::QUESTIONS.size).to_a.sample
     if Interest.where(user: user, question_id:random).empty?
       Interest.create!(
