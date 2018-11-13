@@ -13,3 +13,26 @@
 @import "layouts/index";
 @import "components/index";
 @import "pages/index";
+
+
+
+
+
+
+.avatar {
+  height: 7em;
+//  border: 2px solid black;
+  img {
+    border-radius: 2px;
+    height: 7em;
+  }
+}
+
+.username {
+  height: 3em;
+  text-align: center;
+}
+
+.bday p {
+  text-align: center;
+}
