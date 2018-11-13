@@ -7,39 +7,80 @@
 <% end %>
 
 <% @matches_to_logged.each do |lol| %>
-  <%= cl_image_tag lol.from_user.photo%>
-  <a href="<%= profile_path(lol.from_user.id) %>" ><%= lol.from_user.username %></a>
+
+  <% if lol.status == "accepted" %>
+
+    <%= cl_image_tag lol.from_user.photo, height: 250, width: 250, crop: :fill, gravity: :face %>
+    <a href="<%= profile_path(lol.from_user.id) %>" ><%= lol.from_user.username %></a>
 
 
-  <div class="center">
-  <% if lol.status == "pending" %>
-  <%= link_to match_path(match: {from_user_number: lol.from_user.id }, status: "accepted", id: lol.from_user.id), method: :patch do %>
     <div class="center">
-      <button type="button" class="btn btn-success">Accept</button>
+      <p>ACCEPTED</p>
     </div>
-  <% end %>
-  <%= link_to match_path(match: {from_user_number: lol.from_user.id }, status: "declined", id: lol.from_user.id), method: :patch do %>
+
+  <% elsif lol.status == "pending" %>
+
+    <%= cl_image_tag lol.from_user.photo, height: 250, width: 250, crop: :fill, gravity: :face %>
+    <a href="<%= profile_path(lol.from_user.id) %>" ><%= lol.from_user.username %></a>
+
+
     <div class="center">
-      <button type="button" class="btn btn-success">Decline</button>
-    </div>
-  <% end %>
+
+    <%= link_to match_path(match: {from_user_number: lol.from_user.id }, status: "accepted", id: lol.from_user.id), method: :patch do %>
+      <div class="center">
+        <button type="button" class="btn btn-success">Accept</button>
+      </div>
+    <% end %>
+
+    <%= link_to match_path(match: {from_user_number: lol.from_user.id }, status: "declined", id: lol.from_user.id), method: :patch do %>
+      <div class="center">
+        <button type="button" class="btn btn-success">Decline</button>
+      </div>
+    <% end %>
+
   <% end %>
  </div>
+
+
+
+
+
 
 
 <% end %>
 
 
 <% if !@matches_from_logged.empty? %>
-<h1>Matches_pending</h1>
+  <h1>Sent Invitations</h1>
 <% end %>
 
-          <% @matches_from_logged.each do |lol| %>
-          <div class="center">
-        <a href="<%= profile_path(lol.to_user.id) %>" ><%= cl_image_tag lol.to_user.photo, height: 250, width: 250, crop: :fill, gravity: :face %>
-</div>
- <%= lol.to_user.username %></a>
-          <% end %>
+<% @matches_from_logged.each do |lol| %>
+
+  <% if lol.status == "accepted" && lol.photo.present? %>
+
+    <div class="center">
+      <a href="<%= profile_path(lol.to_user.id) %>" ><%= cl_image_tag lol.to_user.photo, height: 250, width: 250, crop: :fill, gravity: :face %>
+      <%= cl_image_tag lol.photo, height: 250, width: 250, crop: :fill, gravity: :face %>
+        <p><%= lol.to_user.username %></p>
+      </a>
+    </div>
+  <% elsif lol.status == "accepted" %>
+
+  <div class="center">
+    <a href="<%= profile_path(lol.to_user.id) %>" ><%= cl_image_tag lol.to_user.photo, height: 250, width: 250, crop: :fill, gravity: :face %>
+    <%= image_tag 'WAIT-Sign.jpg', style: 'height: 250px; width: 250px' %>
+      <p><%= lol.to_user.username %></p>
+    </a>
+  </div>
+
+  <% elsif lol.status == "pending" %>
+
+    <div class="center">
+      <a href="<%= profile_path(lol.to_user.id) %>" ><%= cl_image_tag lol.to_user.photo, height: 250, width: 250, crop: :fill, gravity: :face %>
+      <%= lol.to_user.username %></a>
+    </div>
+  <% end %>
+<% end %>
 
 
 

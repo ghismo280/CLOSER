@@ -1,20 +1,59 @@
 <div class="profilecontainer">
-  <br>
-  <br>
 
-  <div class="avatar">
+
+  <div class="avatar text-center" >
     <%= image_tag @user.picture_url if @user.picture_url%>
-    <%= cl_image_tag @user.photo, height: 300, width: 400, crop: :fill, gravity: :face %>
+    <%= cl_image_tag(@user.photo) %>
   </div>
 </div>
 
+<div class="info">
+  <div class="username">
+    <%= @user.username %>
+  </div>
+
+  <div class= "bday">
+    <p>
+    Born on <%= @user.birthdate %>.
+
+    </p>
+
+    <% if params[:id].to_i == current_user.id %>
+      <p>
+         <%= @user.email %>
+      </p>
+    <% end %>
+  </div>
+</div>
+<br>
+<br>
+<div class="currentinterests" style="text-align: center; font-weight: bold;">
+YOUR CURRENT INTERESTS
+</div>
+
+<div class="lookingfor">
+I'm looking for...
+</div>
 
 
-<% if @m && @m.photo.present? %>
+<div class="interests">
+  <ul>
+    <% @user.valid_interest.each do |interest| %>
+    <li>
+      <%= Interest::QUESTIONS[interest.question_id][:display] %>
+    </li>
+    <% end %>
+  </ul>
+</div>
 
 
-  <%= cl_image_tag @m.photo %>
-  <h3><%= @m.instructions %></h3>
+<% if (@match_sent && @match_sent.photo.present?) || (@m && @m.photo.present?) %>
+
+
+  <%= cl_image_tag @m.photo if @m%>
+  <%= cl_image_tag @match_sent.photo if @match_sent%>
+  <h3><%= @m.instructions if @m%></h3>
+  <h3><%= @match_sent.instructions if @match_sent%></h3>
 
 
 
@@ -31,11 +70,11 @@
 
 
 
-<% elsif params[:id].to_i != current_user.id && @match_sent == nil %>
+<% elsif params[:id].to_i != current_user.id && @match_sent == nil && @m == nil %>
 
   <%= link_to matches_path(num: params[:id]), method: :post do %>
   <div class="center">
-    <button type="button" class="btn btn-success">Invite</button>
+    <button type="button" class="btn btn-success, btn">Invite</button>
   </div>
   <% end %>
 
@@ -46,38 +85,15 @@
 
 
   <%= link_to destroy_user_session_path do %>
-  <div class="center">
-    <button type="button" class="btn btn-danger">Log Out</button>
-  </div>
+
+    <div class="center">
+      <button type="button" class="btn btn-danger">Log Out</button>
+    </div>
+
   <% end %>
 
 <% end %>
 
 
 
-
-
-<div class="info">
-  <h2>
-    Hi! I'm <%= @user.username %>
-  </h2>
-
-  <p>
-    My birthdate: <%= @user.birthdate %>.
-  </p>
-
-  <p>
-    My email: <%= @user.email %>
-  </p>
-</div>
-
-<div class="interests">
-  <ul>
-    <% @user.valid_interest.each do |interest| %>
-    <li>
-      <%= Interest::QUESTIONS[interest.question_id][:display] %>
-    </li>
-    <% end %>
-  </ul>
-</div>
 
