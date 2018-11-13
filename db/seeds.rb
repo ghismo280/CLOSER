@@ -33,8 +33,8 @@ puts "Creating users..."
 
 damian = User.create!(
     username: "Damian Le Nouaille",
-    remote_photo_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/kwwqtvqbs8tb8vhhcpy2.jpg",
-    birthdate: 30.years.ago,
+    remote_photo_url: "https://res.cloudinary.com/wagon/image/upload/kwwqtvqbs8tb8vhhcpy2.jpg",
+    birthdate: 29.years.ago,
     email: "a@closerapp.life",
     password: '123456',
     latitude: generate_coordinate[0],
@@ -43,7 +43,7 @@ damian = User.create!(
 
 marco = User.create!(
     username: "Marco Ranieri",
-    remote_photo_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/oum9xg0ts92fabm4ticw.jpg",
+    remote_photo_url: "https://res.cloudinary.com/wagon/image/upload/oum9xg0ts92fabm4ticw.jpg",
     birthdate: 29.years.ago,
     email: "b@closerapp.life",
     password: '123456',
@@ -53,7 +53,7 @@ marco = User.create!(
 
 francesco = User.create!(
     username: "Francesco Ecclesie",
-    remote_photo_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/ulwgqfs7blnmycgmowqu.jpg",
+    remote_photo_url: "https://res.cloudinary.com/wagon/image/upload/ulwgqfs7blnmycgmowqu.jpg",
     birthdate: 28.years.ago,
     email: "c@closerapp.life",
     password: '123456',
@@ -73,7 +73,7 @@ arbi = User.create!(
 
 elon = User.create!(
     username: "Elon Musk",
-    remote_photo_url: "https://thumbor.forbes.com/thumbor/200x200/filters%3Aformat%28jpg%29/https://specials-images.forbesimg.com/dam/imageserve/974773028/0x0.jpg?fit=scale",
+    remote_photo_url: "https://s.yimg.com/ny/api/res/1.2/lseK7hX2FbGJM94BuezbHg--~A/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9ODAw/http://media.zenfs.com/en-US/homerun/businessinsider.com/9ea607142652ea3bbd2f0792b3f6b821",
     birthdate: 40.years.ago,
     email: "e@closerapp.life",
     password: '123456',
@@ -81,50 +81,51 @@ elon = User.create!(
     longitude: generate_coordinate[1],
   )
 
-steve = User.create!(
-    username: "Steve Jobs",
-    remote_photo_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRen3hG7WFTdhQNU1q7D4bWLfoq5CcJtlXYJqlHoqq_SQNUn9i3",
-    birthdate: 50.years.ago,
+
+bill = User.create!(
+    username: "Bill Gates",
+    remote_photo_url: "https://www.105.net/resizer/659/-1/true/1495102372074.jpg--bill_gates_ai_giovani__ecco_come_migliorare_la_propria_vita.jpg?1495102376000",
+    birthdate: 60.years.ago,
     email: "f@closerapp.life",
     password: '123456',
     latitude: generate_coordinate[0],
     longitude: generate_coordinate[1],
   )
 
-bill = User.create!(
-    username: "Bill Gates",
-    remote_photo_url: "https://media.licdn.com/dms/image/C5603AQHv9IK9Ts0dFA/profile-displayphoto-shrink_200_200/0?e=1542240000&v=beta&t=uO7-rCoZJ68jCnwNG76pxxdFRkI785Ys9ZTeNBzrQIE",
-    birthdate: 60.years.ago,
+montemagno = User.create!(
+    username: "Marco Montemagno",
+    remote_photo_url: "https://www.newsly.it/wp-content/uploads/2017/02/marco-montemagno.jpg",
+    birthdate: 42.years.ago,
     email: "g@closerapp.life",
     password: '123456',
     latitude: generate_coordinate[0],
     longitude: generate_coordinate[1],
   )
 
-jeff = User.create!(
-    username: "Jeff Besos",
-    remote_photo_url: "https://media.licdn.com/dms/image/C560BAQGbsqZVDyPAlw/company-logo_200_200/0?e=2159024400&v=beta&t=DbMQLMx4NdZ2uTPCpkW_LTWxCKuqH6HqEWkNoiLNJ7k",
-    birthdate: 50.years.ago,
+elvia = User.create!(
+    username: "Elvia Garcia",
+    remote_photo_url: "https://avatars2.githubusercontent.com/u/42932791?v=4",
+    birthdate: 24.years.ago,
     email: "h@closerapp.life",
     password: '123456',
     latitude: generate_coordinate[0],
     longitude: generate_coordinate[1],
   )
 
-jeff_ = User.create!(
-    username: "Jeff Weiner",
-    remote_photo_url: "https://cdn.lynda.com/authors/4873327_200x200_thumb.jpg",
-    birthdate: 45.years.ago,
+luis = User.create!(
+    username: "Luis Chagas",
+    remote_photo_url: "https://avatars3.githubusercontent.com/u/42444184?v=4",
+    birthdate: 37.years.ago,
     email: "i@closerapp.life",
     password: '123456',
     latitude: generate_coordinate[0],
     longitude: generate_coordinate[1],
   )
 
-sundar = User.create!(
-    username: "Sundar Pichai",
-    remote_photo_url: "https://cdn.japantimes.2xx.jp/wp-content/uploads/2018/11/b-alphabet-a-20181102-200x200.jpg",
-    birthdate: 55.years.ago,
+angelo = User.create!(
+    username: "Angelo Callari",
+    remote_photo_url: "https://avatars2.githubusercontent.com/u/42140856?s=460&v=4",
+    birthdate: 25.years.ago,
     email: "j@closerapp.life",
     password: '123456',
     latitude: generate_coordinate[0],
@@ -169,7 +170,7 @@ Match.create!(
     )
 
 Match.create!(
-    from_user: jeff,
+    from_user: angelo,
     to_user: marco
     )
 
@@ -179,6 +180,6 @@ Match.create!(
     )
 
 Match.create!(
-    from_user: jeff_,
+    from_user: montemagno,
     to_user: marco
     )
