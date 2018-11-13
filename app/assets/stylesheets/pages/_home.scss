@@ -1,13 +1,87 @@
 // Specific CSS for your home-page
-.center {
+
+.banner {
+  // color: white;
+  // text-align: center;
+  height: 100vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  // background-position: center;
+  opacity: 0.4;
   display: flex;
-  justify-content: space-around;
-  padding: auto;
-  margin-top: 3vh;
+  align-items: center;
+  justify-content: center;
+  background-repeat: no-repeat;
+  // background-size: contain;
+  background-position: center;
+  background-color: white !important;
 }
 
-.image {
-  height: auto;
-  width: 100vw;
-  margin-top: 5vh;
+.banner-title {
+  position: absolute;
+  top: 40vh;
+  left: 0vw;
+  text-align: center;
 }
+
+.banner-title h1 {
+  color: white;
+  background-color: #B3FF00;
+  width: 100vw;
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+}
+
+.banner-paragraph {
+  position: absolute;
+  top: 67vh;
+  left: 23vw;
+  text-align: center;
+}
+
+.banner-paragraph p {
+  font-size: 25px;
+  font-weight: lighter;
+  color: black;
+  opacity: 0.6;
+  margin-bottom: 30px;
+}
+
+.btn {
+  color: black;
+  // padding: 10px 15px;
+  font-weight: lighter;
+  background: #B3FF00;
+  border-color: #B3FF00;
+  width: 30vw;
+  border-radius: 2px;
+}
+
+.log-btn {
+  position: absolute;
+  top: 78vh;
+  left: 35vw;
+  display: flex;
+  justify-content: space-around;
+}
+
+.sign-btn {
+  position: absolute;
+  top: 88vh;
+  left: 35vw;
+  display: flex;
+  justify-content: space-around;
+}
+
+.sign-btn .btn {
+  background-color: white !important;
+  border-width: 2px;
+}
+
+
+// .image {
+//   height: auto;
+//   width: 100vw;
+//   margin-top: 5vh;
+// }

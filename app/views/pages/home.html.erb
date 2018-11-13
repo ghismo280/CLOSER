@@ -1,4 +1,16 @@
-<div>
+<div class="banner" style="background-image: url('https://res.cloudinary.com/dn6bufmp3/image/upload/v1542118122/logo-closer-fine.svg');">
+</div>
+
+<div class="banner-title">
+  <h1>CLOSER</h1>
+  <!-- <a class="btn btn-primary btn-lg">Start now</a> -->
+</div>
+
+<div class="banner-paragraph">
+  <p>RE-CONNECTING PEOPLE</p>
+</div>
+
+<!-- <div>
   <div>
     <% if user_signed_in? %>
     <%= image_tag 'closer_thumb.jpg.png', class: "image" %>
@@ -6,7 +18,7 @@
     <%= image_tag 'joesph-eliezer-happy-people.jpg', class: "image" %>
     <% end %>
   </div>
-</div>
+</div> -->
 
 <% if user_signed_in? %>
 
@@ -15,26 +27,26 @@
 
 <% else %>
 
-<div class="center">
+<!-- <div class="center">
   <div>
     <h1>CLOSER</h1>
   </div>
-</div>
+</div> -->
 
-<div class="center">
+<!-- <div class="center">
   <div>
     <p>reconnecting people</p>
   </div>
-</div>
+</div> -->
 
 
-  <div class="center">
-    <div>
-      <%= link_to('Sign Up',new_user_registration_path,class:"btn btn-primary") %>
-    </div>
-    <div>
-      <%= link_to('Log In',new_user_session_path,class:"btn btn-primary") %>
-    </div>
+<div class="center">
+  <div class="sign-btn">
+    <%= link_to('SIGN UP',new_user_registration_path,class: "btn btn-primary") %>
   </div>
+  <div class="log-btn">
+    <%= link_to('LOG IN',new_user_session_path,class: "btn btn-primary") %>
+  </div>
+</div>
 
 <% end %>
