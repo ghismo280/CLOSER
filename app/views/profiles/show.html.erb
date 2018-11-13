@@ -18,9 +18,11 @@
 
     </p>
 
-  <p>
-   <%= @user.email %>
-  </p>
+    <% if params[:id].to_i == current_user.id %>
+      <p>
+         <%= @user.email %>
+      </p>
+    <% end %>
   </div>
 </div>
 <br>
@@ -45,11 +47,13 @@ I'm looking for...
 </div>
 
 
-<% if @m && @m.photo.present? %>
+<% if (@match_sent && @match_sent.photo.present?) || (@m && @m.photo.present?) %>
 
 
-  <%= cl_image_tag @m.photo %>
-  <h3><%= @m.instructions %></h3>
+  <%= cl_image_tag @m.photo if @m%>
+  <%= cl_image_tag @match_sent.photo if @match_sent%>
+  <h3><%= @m.instructions if @m%></h3>
+  <h3><%= @match_sent.instructions if @match_sent%></h3>
 
 
 
@@ -66,7 +70,7 @@ I'm looking for...
 
 
 
-<% elsif params[:id].to_i != current_user.id && @match_sent == nil %>
+<% elsif params[:id].to_i != current_user.id && @match_sent == nil && @m == nil %>
 
   <%= link_to matches_path(num: params[:id]), method: :post do %>
   <div class="center">
@@ -81,13 +85,14 @@ I'm looking for...
 
 
   <%= link_to destroy_user_session_path do %>
-  <div class="center" style="margin-top: 40px;">
-    <button type="button" class= "btn btn-danger">Log Out</button>
-  </div>
+
+    <div class="center">
+      <button type="button" class="btn btn-danger">Log Out</button>
+    </div>
+
   <% end %>
 
 <% end %>
-
 
 
 
