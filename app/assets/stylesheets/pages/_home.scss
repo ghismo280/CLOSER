@@ -1,18 +1,13 @@
 // Specific CSS for your home-page
 
 .banner {
-  // color: white;
-  // text-align: center;
   height: 100vh;
-  /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
-  // background-position: center;
   opacity: 0.4;
   display: flex;
   align-items: center;
   justify-content: center;
   background-repeat: no-repeat;
-  // background-size: contain;
   background-position: center;
   background-color: white !important;
 }
@@ -28,6 +23,7 @@
   width: 100vw;
   padding-right: 12vw;
   padding-left: 12vw;
+  font-weight: lighter;
 }
 
 .banner-title {
@@ -91,10 +87,3 @@
   background-color: white !important;
   border-width: 2px;
 }
-
-
-// .image {
-//   height: auto;
-//   width: 100vw;
-//   margin-top: 5vh;
-// }
