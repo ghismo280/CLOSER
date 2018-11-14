@@ -66,10 +66,10 @@ I'm looking for...
 
 
 
-<% elsif @m && @m.status == 'accepted' %>
+<% elsif @match_sent && @match_sent.status == 'accepted' %>
 
 
-  <%= simple_form_for(@m) do |f| %>
+  <%= simple_form_for(@match_sent) do |f| %>
     <%= f.input :photo %>
     <%= f.input :photo_cache, as: :hidden %>
     <%= f.input :instructions %>
