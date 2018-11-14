@@ -1,11 +1,13 @@
-<h1>Interests</h1>
+
+<div class="interestsformcontainer">
 
 <%= form_tag interests_path do |f|  %>
-<h3>Choose your interests</h3>
-
+<br>
+<div class="choose">CHOOSE YOUR INTERESTS</div>
+<br>
     <% counter = 0 %>
       <% Interest::QUESTIONS.each do |question| %>
-      <div>
+        <div class="interestbar">
 
           <%= question[:question] %>
 
@@ -17,8 +19,12 @@
 
         <% counter += 1 %>
       </div>
+
       <% end %>
+      <br>
 
+  <input type="submit" value="SAVE" class="btn btn-danger" style="margin-bottom: 10px;">
 
-  <input type="submit" value="Save">
 <% end %>
+</div>
+</div>
