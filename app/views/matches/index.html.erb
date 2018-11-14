@@ -1,57 +1,47 @@
-  <h1 class="text-center">MATCHES</h1>
-  <br>
+<h1 class="text-center">MATCHES</h1>
 
+<%# if !@matches_to_logged.empty? %>
+<!-- <h1 class="text-center">REQUESTS</h1>
+ --><%# end %>
+ <%#= raise %>
+<% @matches_to_logged.where(status: "accepted").each do |lol| %>
 
-<% if !@matches_to_logged.empty? %>
-<h1>Requests</h1>
+<div class="match-container">
+  <div class="left-image">
+    <%= cl_image_tag lol.from_user.photo, height: 250, width: 250, crop: :fill, gravity: :face, class: "image-accepted-match" %>
+  </div>
+  <div class="right-content">
+    <a href="<%= profile_path(lol.from_user.id) %>" class="username-right-content"><%= lol.from_user.username %></a>
+    <div class="btn-send-instructions">SEND INSTRUCTIONS</div>
+  </div>
+</div>
 <% end %>
 
-<% @matches_to_logged.each do |lol| %>
-
-  <% if lol.status == "accepted" %>
-
-    <%= cl_image_tag lol.from_user.photo, height: 250, width: 250, crop: :fill, gravity: :face %>
-    <a href="<%= profile_path(lol.from_user.id) %>" ><%= lol.from_user.username %></a>
+<h1 class="text-center">REQUESTS</h1>
 
 
-    <div class="center">
-      <p>ACCEPTED</p>
-    </div>
+<% @matches_to_logged.where(status: "pending").each do |lol| %>
 
-  <% elsif lol.status == "pending" %>
-
-    <%= cl_image_tag lol.from_user.photo, height: 250, width: 250, crop: :fill, gravity: :face %>
-    <a href="<%= profile_path(lol.from_user.id) %>" ><%= lol.from_user.username %></a>
-
-
-    <div class="center">
+<div class="match-container">
+  <div class="left-image">
+    <%= cl_image_tag lol.from_user.photo, height: 250, width: 250, crop: :fill, gravity: :face, class: "image-accepted-match" %>
+  </div>
+  <div class="right-content-pending">
+    <a href="<%= profile_path(lol.from_user.id) %>" class="username-right-content"><%= lol.from_user.username %></a>
 
     <%= link_to match_path(match: {from_user_number: lol.from_user.id }, status: "accepted", id: lol.from_user.id), method: :patch do %>
-      <div class="center">
-        <button type="button" class="btn btn-success">Accept</button>
-      </div>
+      <div class="btn-send-instructions accept">ACCEPT</div>
     <% end %>
 
     <%= link_to match_path(match: {from_user_number: lol.from_user.id }, status: "declined", id: lol.from_user.id), method: :patch do %>
-      <div class="center">
-        <button type="button" class="btn btn-success">Decline</button>
-      </div>
+      <div class="btn-send-instructions decline">DECLINE</div>
     <% end %>
-
-  <% end %>
  </div>
-
-
-
-
-
-
-
 <% end %>
-
+  </div>
 
 <% if !@matches_from_logged.empty? %>
-  <h1>Sent Invitations</h1>
+  <h1 class="text-center">SENT INVITATIONS</h1>
 <% end %>
 
 <% @matches_from_logged.each do |lol| %>
