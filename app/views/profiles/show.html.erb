@@ -7,10 +7,13 @@
   </div>
 </div>
 
-<div class="info">
-  <div class="username">
-    <%= @user.username %>
+<div class="info" style="font-size: 12px">
+  <div class="username" >
+    <%="#{@user.username.upcase}, #{Date.today.year - @user.birthdate.year} yo" if @user.birthdate %>
+
+
   </div>
+
 
   <div class= "bday">
     <p>
@@ -36,17 +39,17 @@
   <% end %>
 </div>
 
-<div class="lookingfor">
+<div class="lookingfor" style="margin-left: 3vh; font-size: 12px">
 I'm looking for...
 </div>
 
 
-<div class="interests">
+<div class="interests" style="text-align: center;" >
   <ul>
     <% @user.valid_interest.each do |interest| %>
-    <li>
+    <p>
       <%= Interest::QUESTIONS[interest.question_id][:display] %>
-    </li>
+    </p>
     <% end %>
   </ul>
 </div>
@@ -91,8 +94,8 @@ I'm looking for...
 
   <%= link_to destroy_user_session_path do %>
 
-    <div class="center">
-      <button type="button" class="btn btn-danger">Log Out</button>
+    <div class="center" style="text-align: center;">
+      <button type="button" class="btn btn-danger">LOG OUT</button>
     </div>
 
   <% end %>
