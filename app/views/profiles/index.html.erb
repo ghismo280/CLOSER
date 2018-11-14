@@ -34,9 +34,14 @@
   }
 
 </style>
+<div class="text-center">
+    <%= link_to("Refresh list", profiles_path, id: "refresh_button", class: "btn btn-success", disabled: "disabled") %>
+</div>
 
 
   <div class="row">
+
+
           <h2> <% @users.each do |user| %></h2>
           <% if user != current_user %>
 

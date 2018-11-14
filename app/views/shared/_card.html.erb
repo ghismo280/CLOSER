@@ -48,24 +48,3 @@
     opacity: 0.1;
   }
 </style> -->
-
-
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-        <div class="card-description">
-          <h2> <% @users.each do |user| %></h2>
-          <%= "#{user.username}" %>
-          <% end %>
-          <p>engage</p>
-        </div>
-        <img class="card-user" src= <%= image_tag @user.picture_url %> >
-        <a class="card-link" href="#" ></a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
- -->
