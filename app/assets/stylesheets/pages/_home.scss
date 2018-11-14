@@ -17,9 +17,22 @@
   background-color: white !important;
 }
 
+.how-does-it-work {
+  position: absolute;
+  top: 100vh;
+  left: 0vw;
+  text-align: center;
+  font-size: 19px;
+  color: black;
+  background-color: white;
+  width: 100vw;
+  padding-right: 12vw;
+  padding-left: 12vw;
+}
+
 .banner-title {
   position: absolute;
-  top: 40vh;
+  top: 42vh;
   left: 0vw;
   text-align: center;
 }
