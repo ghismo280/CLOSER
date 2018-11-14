@@ -1,18 +1,19 @@
 <div class="profilecontainer">
 
-
+<br>
   <div class="avatar text-center" >
     <%= image_tag @user.picture_url if @user.picture_url%>
     <%= cl_image_tag(@user.photo) %>
   </div>
 </div>
 
-<div class="info">
-  <div class="username">
-    <%= @user.username %>
+<div class="info" style="font-size: 12px">
+  <div class="username" >
+    <span class="username-detail"><%="#{@user.username.upcase}" %></span>
+    <%="#{Date.today.year - @user.birthdate.year} yo" if @user.birthdate %>
   </div>
 
-  <div class= "bday">
+  <div class= "bday" style="margin-bottom: -21px;">
     <p>
     Born on <%= @user.birthdate %>.
     </p>
@@ -26,7 +27,6 @@
 </div>
 
 <br>
-<br>
 
 <div class="currentinterests" style="text-align: center; font-weight: bold;">
   <% if params[:id].to_i == current_user.id %>
@@ -36,19 +36,23 @@
   <% end %>
 </div>
 
-<div class="lookingfor">
+<div class="lookingfor" style="margin-left: 3vh; font-size: 12px">
 I'm looking for...
 </div>
+<br>
 
 
-<div class="interests">
-  <ul>
+
+<div class="interests" style="padding: 4px;">
     <% @user.valid_interest.each do |interest| %>
-    <li>
+
+    <div class="interestbar">
+      <p style="margin: 5px;">
       <%= Interest::QUESTIONS[interest.question_id][:display] %>
-    </li>
+      </p>
+    </div>
+
     <% end %>
-  </ul>
 </div>
 
 
@@ -91,8 +95,8 @@ I'm looking for...
 
   <%= link_to destroy_user_session_path do %>
 
-    <div class="center">
-      <button type="button" class="btn btn-danger">Log Out</button>
+    <div class="center" style="text-align: center;">
+      <button type="button" class="btn btn-danger" style="margin-bottom: 10px;">LOG OUT</button>
     </div>
 
   <% end %>
@@ -100,5 +104,8 @@ I'm looking for...
 <% end %>
 
 
+
+ <!--  color:#B3FF00 ;
+  border-color: #B3FF00; -->
 
 
