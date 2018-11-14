@@ -7,7 +7,16 @@
 </div>
 
 <div class="banner-paragraph">
-  <p>RE-CONNECTING PEOPLE</p>
+
+  <% if user_signed_in? %>
+    <p>
+      Hello <b><%= current_user.username %></b>
+    </p>
+  <% else %>
+    <p>
+      RE-CONNECTING PEOPLE
+    </p>
+  <% end %>
 </div>
 
 <!-- <div>
@@ -20,12 +29,7 @@
   </div>
 </div> -->
 
-<% if user_signed_in? %>
-
-<h2 class="text-center">Welcome</h2>
-<h1 class="text-center"><%= current_user.username %></h1>
-
-<% else %>
+<% unless user_signed_in? %>
 
 <!-- <div class="center">
   <div>
