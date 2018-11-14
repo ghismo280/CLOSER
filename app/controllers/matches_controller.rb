@@ -13,7 +13,7 @@ class MatchesController < ApplicationController
   end
 
   def update
-    @m = Match.where(from_user: User.find(params[:match][:from_user_number]), to_user: current_user).first
+    @m = Match.where(to_user: User.find(params[:match][:from_user_number]), from_user: current_user).first
     @m.status = params[:status] if params[:status]
     @m.photo = params[:match][:photo] if params[:match][:photo]
     @m.instructions = params[:match][:instructions] if params[:match][:instructions]

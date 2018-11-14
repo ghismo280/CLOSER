@@ -4,19 +4,37 @@
 <!-- <h1 class="text-center">REQUESTS</h1>
  --><%# end %>
  <%#= raise %>
-<% @matches_to_logged.where(status: "accepted").each do |lol| %>
+<% @matches_to_logged.each do |lol| %>
 
-<div class="match-container">
-  <div class="left-image">
-    <%= cl_image_tag lol.from_user.photo, height: 250, width: 250, crop: :fill, gravity: :face, class: "image-accepted-match" %>
-  </div>
-  <div class="right-content">
-    <%= link_to profile_path(lol.from_user.id), class: "username-right-content" do%>
-    <%= lol.from_user.username %>
-    <div class="btn-send-instructions">SEND INSTRUCTIONS</div>
-    <% end %>
-  </div>
-</div>
+  <% if lol.status == 'accepted' && !lol.photo.present? %>
+
+    <div class="match-container">
+      <div class="left-image">
+        <%= cl_image_tag lol.from_user.photo, height: 250, width: 250, crop: :fill, gravity: :face, class: "image-accepted-match" %>
+      </div>
+      <div class="right-content">
+        <%= link_to profile_path(lol.from_user.id), class: "username-right-content" do%>
+        <%= lol.from_user.username %>
+        <% end %>
+        <div class="btn-send-instructions">WAIT FOR INSTRUCTIONS</div>
+      </div>
+    </div>
+
+  <% elsif lol.status == 'accepted' && lol.photo.present? %>
+
+    <div class="match-container">
+      <div class="left-image">
+        <%= cl_image_tag lol.from_user.photo, height: 250, width: 250, crop: :fill, gravity: :face, class: "image-accepted-match" %>
+      </div>
+      <div class="right-content">
+        <%= link_to profile_path(lol.from_user.id), class: "username-right-content" do%>
+        <%= lol.from_user.username %>
+        <div class="btn-send-instructions">GO TO INSTRUCTIONS</div>
+        <% end %>
+      </div>
+    </div>
+
+  <% end %>
 <% end %>
 
 <h1 class="text-center">REQUESTS</h1>
@@ -50,27 +68,46 @@
 
   <% if lol.status == "accepted" && lol.photo.present? %>
 
-    <div class="center">
-      <a href="<%= profile_path(lol.to_user.id) %>" ><%= cl_image_tag lol.to_user.photo, height: 250, width: 250, crop: :fill, gravity: :face %>
-      <%= cl_image_tag lol.photo, height: 250, width: 250, crop: :fill, gravity: :face %>
-        <p><%= lol.to_user.username %></p>
-      </a>
+        <div class="match-container">
+      <div class="left-image">
+      <%= cl_image_tag lol.to_user.photo, height: 250, width: 250, crop: :fill, gravity: :face, class: "image-accepted-match" %>
+      </div>
+      <div class="right-content">
+      <%= link_to profile_path(lol.to_user.id), class: "username-right-content" do%>
+      <%= lol.to_user.username %>
+      <div class="btn-send-instructions">MATCHED</div>
+      <% end %>
+      </div>
     </div>
+
   <% elsif lol.status == "accepted" %>
 
-  <div class="center">
-    <a href="<%= profile_path(lol.to_user.id) %>" ><%= cl_image_tag lol.to_user.photo, height: 250, width: 250, crop: :fill, gravity: :face %>
-    <%= image_tag 'WAIT-Sign.jpg', style: 'height: 250px; width: 250px' %>
-      <p><%= lol.to_user.username %></p>
-    </a>
-  </div>
+        <div class="match-container">
+      <div class="left-image">
+      <%= cl_image_tag lol.to_user.photo, height: 250, width: 250, crop: :fill, gravity: :face, class: "image-accepted-match" %>
+      </div>
+      <div class="right-content">
+      <%= link_to profile_path(lol.to_user.id), class: "username-right-content" do%>
+      <%= lol.to_user.username %>
+      <div class="btn-send-instructions">SEND INSTRUCTION</div>
+      <% end %>
+      </div>
+    </div>
 
   <% elsif lol.status == "pending" %>
 
-    <div class="center">
-      <a href="<%= profile_path(lol.to_user.id) %>" ><%= cl_image_tag lol.to_user.photo, height: 250, width: 250, crop: :fill, gravity: :face %>
-      <%= lol.to_user.username %></a>
+        <div class="match-container">
+      <div class="left-image">
+      <%= cl_image_tag lol.to_user.photo, height: 250, width: 250, crop: :fill, gravity: :face, class: "image-accepted-match" %>
+      </div>
+      <div class="right-content">
+      <%= link_to profile_path(lol.to_user.id), class: "username-right-content" do%>
+      <%= lol.to_user.username %>
+      <div class="btn-send-instructions">REQUEST SENT</div>
+      <% end %>
+      </div>
     </div>
+
   <% end %>
 <% end %>
 
