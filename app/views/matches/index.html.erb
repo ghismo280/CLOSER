@@ -11,8 +11,10 @@
     <%= cl_image_tag lol.from_user.photo, height: 250, width: 250, crop: :fill, gravity: :face, class: "image-accepted-match" %>
   </div>
   <div class="right-content">
-    <a href="<%= profile_path(lol.from_user.id) %>" class="username-right-content"><%= lol.from_user.username %></a>
+    <%= link_to profile_path(lol.from_user.id), class: "username-right-content" do%>
+    <%= lol.from_user.username %>
     <div class="btn-send-instructions">SEND INSTRUCTIONS</div>
+    <% end %>
   </div>
 </div>
 <% end %>
@@ -37,8 +39,8 @@
       <div class="btn-send-instructions decline">DECLINE</div>
     <% end %>
  </div>
-<% end %>
   </div>
+<% end %>
 
 <% if !@matches_from_logged.empty? %>
   <h1 class="text-center">SENT INVITATIONS</h1>

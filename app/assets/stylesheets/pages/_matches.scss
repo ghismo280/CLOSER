@@ -6,6 +6,8 @@
   height: 25vh;
   background-color: #F7F7F7;
   margin-bottom: 15px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 .left-image, .right-content, .right-content-pending {
@@ -36,6 +38,7 @@
 }
 
 .btn-send-instructions {
+  text-decoration: none;
   border: 1px solid green;
   width: 40vw;
   margin: 57px auto;
