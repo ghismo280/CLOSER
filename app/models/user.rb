@@ -25,7 +25,7 @@ class User < ApplicationRecord
   end
 
   def self.near_me(users, user)
-    User.where(id: users.map(&:id)).near([user.latitude, user.longitude], 20, units: :km, order: "distance")
+    User.where(id: users.map(&:id)).near([user.latitude, user.longitude], 60, units: :km, order: "distance")
     #users
   end
 
