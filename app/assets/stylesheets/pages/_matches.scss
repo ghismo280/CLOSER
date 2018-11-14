@@ -1,0 +1,47 @@
+// h1 {
+//   text-align: center;
+// }
+.match-container {
+  display: flex;
+  height: 25vh;
+  background-color: #F7F7F7;
+  margin-bottom: 15px;
+}
+
+.left-image, .right-content, .right-content-pending {
+  width: 50vw;
+}
+
+.image-accepted-match {
+  height: 100% !important;
+  width: 90% !important;
+  float: right;
+}
+
+.right-content {
+  text-align: center;
+  padding-top: 25px;
+}
+
+.right-content-pending {
+  text-align: center;
+  padding-top: 25px;
+}
+
+.username-right-content {
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.btn-send-instructions {
+  border: 1px solid green;
+  width: 40vw;
+  margin: 57px auto;
+  color: green;
+}
+
+.accept, .decline {
+  margin: 10px auto;
+}
