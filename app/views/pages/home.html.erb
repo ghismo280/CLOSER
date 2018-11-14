@@ -12,25 +12,12 @@
 </div>
 
 <div class="banner-paragraph">
-
-  <% if user_signed_in? %>
-    <p>
-      Hello <b><%= current_user.username %></b>
-    </p>
-  <% else %>
-    <p>
-      RE-CONNECTING PEOPLE
-    </p>
-  <% end %>
+  <p>RE-CONNECTING PEOPLE</p>
 </div>
 
 
 
 <% unless user_signed_in? %>
-
-
-
-
 
 <div class="center">
   <div class="sign-btn">
