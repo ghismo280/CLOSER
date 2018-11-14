@@ -14,46 +14,16 @@
   </div>
 
   <div class= "bday" style="margin-bottom: -21px;">
-    <p>
-    Born on <%= @user.birthdate %>.
-    </p>
 
     <% if params[:id].to_i == current_user.id %>
-      <p>
-         <%= @user.email %>
-      </p>
+      <p>Born on <%= @user.birthdate %></p>
+      <p><%= @user.email %></p>
     <% end %>
   </div>
 </div>
 
+
 <br>
-
-<div class="currentinterests" style="text-align: center; font-weight: bold;">
-  <% if params[:id].to_i == current_user.id %>
-    YOUR CURRENT INTERESTS
-  <% else %>
-    INTERESTS
-  <% end %>
-</div>
-
-<div class="lookingfor" style="margin-left: 3vh; font-size: 12px">
-I'm looking for...
-</div>
-<br>
-
-
-
-<div class="interests" style="padding: 4px;">
-    <% @user.valid_interest.each do |interest| %>
-
-    <div class="interestbar">
-      <p style="margin: 5px;">
-      <%= Interest::QUESTIONS[interest.question_id][:display] %>
-      </p>
-    </div>
-
-    <% end %>
-</div>
 
 
 <% if (@match_sent && @match_sent.photo.present?) || (@m && @m.photo.present?) %>
@@ -107,5 +77,34 @@ I'm looking for...
 
  <!--  color:#B3FF00 ;
   border-color: #B3FF00; -->
+<br>
 
 
+<div class="currentinterests" style="text-align: center; font-weight: bold;">
+  <% if params[:id].to_i == current_user.id %>
+    YOUR CURRENT INTERESTS
+  <% else %>
+    <%= "#{User.find(params[:id]).username.upcase}'S INTERESTS" %>
+  <% end %>
+</div>
+
+<% if params[:id].to_i == current_user.id %>
+  <div class="lookingfor" style="margin-left: 3vh; font-size: 12px">
+    I'm looking for...
+  </div>
+<% end %>
+<br>
+
+
+
+<div class="interests" style="padding: 4px;">
+    <% @user.valid_interest.each do |interest| %>
+
+    <div class="interestbar">
+      <p style="margin: 5px;">
+      <%= Interest::QUESTIONS[interest.question_id][:display] %>
+      </p>
+    </div>
+
+    <% end %>
+</div>
