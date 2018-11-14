@@ -1,37 +1,29 @@
-<div class="center">
-  <div class="navbar-main">
-    <%= link_to matches_path do%>
-    <i class="fas fa-history history" ></i>
-    <% end %>
+<div class="navbar-box">
+  <div class="navbar-back-side-icon">
+    <div class="navbar-element">
+      <%= link_to matches_path do%>
+      <i class="fas fa-history history" ></i>
+      <% end %>
+    </div>
   </div>
-  <div>
-    <%= link_to profiles_path do %>
-    <%= image_tag "logo-closer.svg", class: "logo" %>
-    <% end %>
-  </div>
-  <div>
-    <%= link_to "/profiles/#{current_user.id}", class: "profile" do %>
-    <i class="far fa-user user-bar"></i>
-    <% end %>
-  </div>
-</div>
 
-<style>
-.user-bar {
-  text-decoration: none;
-  font-size: 25px;
-  color: grey;
-}
-.history {
-  font-size: 25px;
-  color: grey;
-}
-.logo {
-  width: 6vh;
-  margin: 12px;
-  margin-top: -14px;
-}
-.navbar-main {
-  display: flex;
-}
-</style>
+  <div class="navbar-back-main-icon">
+      <%= link_to profiles_path do %>
+      <%= image_tag "logo-closer.svg", class: "logo" %>
+      <% end %>
+  </div>
+
+  <div class="navbar-back-side-icon">
+    <div class="navbar-element">
+      <%= link_to "/profiles/#{current_user.id}", class: "profile" do %>
+      <i class="far fa-user user-bar"></i>
+      <% end %>
+    </div>
+  </div>
+
+</div>
+<div class="navbar-links">
+    <p>MATCHES</p>
+    <p>DISCOVER</p>
+    <p>PROFILE</p>
+</div>
