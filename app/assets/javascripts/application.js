@@ -10,3 +10,4 @@ if (document.getElementById('user_latitude')) {
     document.getElementById("button_signup_user").disabled = false;
   });
 }
+
