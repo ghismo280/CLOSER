@@ -23,26 +23,33 @@
 .right-content {
   text-align: center;
   padding-top: 25px;
+  font-size: 16px;
 }
 
 .right-content-pending {
   text-align: center;
   padding-top: 25px;
+  font-size: 16px;
 }
 
 .username-right-content {
-  text-decoration: none;
+  color: black;
   text-transform: uppercase;
+  /* font-weight: bold; */
   margin-top: 10px;
   margin-bottom: 20px;
+  &:active {
+    text-decoration: none;
+    color: #B3FF00;
+  }
 }
 
 .btn-send-instructions {
   text-decoration: none;
-  border: 1px solid green;
+  border: 1px solid #B3FF00;
   width: 40vw;
   margin: 57px auto;
-  color: green;
+  color: black;
 }
 
 .accept, .decline {
