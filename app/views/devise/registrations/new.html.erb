@@ -4,7 +4,9 @@
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {:multipart => true}) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs" align="middle">
+
+  <div class="form-inputs ourform" align="middle">
+
     <%= f.input :latitude, as: :hidden %>
     <%= f.input :longitude, as: :hidden %>
 
@@ -29,8 +31,9 @@
     <%= f.input :photo_cache, as: :hidden %>
   </div>
 
+
   <div class="form-actions" align="middle">
-    <%= f.button :submit, "Sign up", id: "button_signup_user", disabled: "disabled" %>
+    <%= f.button :submit, "SIGN UP", id: "button_signup_user", disabled: "disabled", class: "ourbtn" %>
   </div>
 <% end %>
 

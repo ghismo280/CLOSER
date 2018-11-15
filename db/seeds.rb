@@ -17,7 +17,7 @@ User.delete_all
 
 # This is a way to generate random coordinates in a certain range (padding)
 HERE = [45.465803, 9.174176]
-PADDING = 0.5
+PADDING = 0.2
 
 def generate_coordinate
   latitudes = [HERE[0] - rand(0..PADDING), HERE[0] + rand(0..PADDING)]
@@ -102,31 +102,41 @@ montemagno = User.create!(
     longitude: generate_coordinate[1],
   )
 
-elvia = User.create!(
-    username: "Elvia Garcia",
-    remote_photo_url: "https://avatars2.githubusercontent.com/u/42932791?v=4",
-    birthdate: 24.years.ago,
+cristiano = User.create!(
+    username: "Cristiano Ronaldo",
+    remote_photo_url: "http://www.calcioweb.eu/wp-content/uploads/2016/07/15866016_small-640x426.jpg",
+    birthdate: 33.years.ago,
     email: "h@closerapp.life",
     password: '123456',
     latitude: generate_coordinate[0],
     longitude: generate_coordinate[1],
   )
 
-luis = User.create!(
-    username: "Luis Chagas",
-    remote_photo_url: "https://avatars3.githubusercontent.com/u/42444184?v=4",
-    birthdate: 37.years.ago,
+michael_j = User.create!(
+    username: "Michael Jordan",
+    remote_photo_url: "https://sineilleifer.files.wordpress.com/2013/01/1066.jpg?w=960",
+    birthdate: 55.years.ago,
     email: "i@closerapp.life",
     password: '123456',
     latitude: generate_coordinate[0],
     longitude: generate_coordinate[1],
   )
 
-angelo = User.create!(
-    username: "Angelo Callari",
-    remote_photo_url: "https://avatars2.githubusercontent.com/u/42140856?s=460&v=4",
-    birthdate: 25.years.ago,
+caparezza = User.create!(
+    username: "CAPAREZZA",
+    remote_photo_url: "https://www.radioglobo.it/wp-content/uploads/2017/10/caparezza_ospite_radio_globo.jpg",
+    birthdate: 45.years.ago,
     email: "j@closerapp.life",
+    password: '123456',
+    latitude: generate_coordinate[0],
+    longitude: generate_coordinate[1],
+  )
+
+mark_z = User.create!(
+    username: "Mark Zuckerberg",
+    remote_photo_url: "https://amp.businessinsider.com/images/5b9198c50ce5f597208b4e1a-750-563.jpg",
+    birthdate: 34.years.ago,
+    email: "k@closerapp.life",
     password: '123456',
     latitude: generate_coordinate[0],
     longitude: generate_coordinate[1],
