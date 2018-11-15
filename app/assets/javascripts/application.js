@@ -1,8 +1,9 @@
 //= require rails-ujs
 //= require_tree .
 
+/*
 if (document.getElementById('user_latitude')) {
-/*  navigator.geolocation.getCurrentPosition(function(position) {
+ navigator.geolocation.getCurrentPosition(function(position) {
     document.getElementById('user_latitude').value = position.coords.latitude;
     document.getElementById('user_longitude').value = position.coords.longitude;
 
