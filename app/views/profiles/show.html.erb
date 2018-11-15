@@ -21,26 +21,20 @@
     <% end %>
   </div>
 </div>
-
-
 <br>
-
-
 <% if (@match_sent && @match_sent.photo.present?) || (@m && @m.photo.present?) %>
 
-  <p> " FIND USERNAME "</p>
+  <div class="i" style="text-align: center; font-size: 30px; font-weight: bold;">INSTRUCTIONS</div>
+  <br>
+
   <div class="newpic" style="text-align: center; border: 1px solid #CEFF1A;">
   <%= cl_image_tag @m.photo, height: 400, width: 400, crop: :fill, gravity: :face if @m%>
-  <br>
-  </div>
-  <div class="newpic" style="text-align: center; border: 1px solid #CEFF1A;">
   <%= cl_image_tag @match_sent.photo, height: 400, width: 400, crop: :fill, gravity: :face if @match_sent%>
-  <br>
   </div>
-  <div class="inst" style="text-align: center;"> <%= @m.instructions  if @m%>
-    <br>
-  <p>"<%= @match_sent.instructions if @match_sent%>"</p>
-  </div>exit
+  <div class="inst" style="text-align: center;">
+  <p><%= "\"#{@m.instructions}\"" if @m %></p>
+  <p><%= "\"#{@match_sent.instructions}\"" if @match_sent %></p>
+  </div>
 
 
   <div class="t">
@@ -58,21 +52,15 @@
   <% end %>
   </div>
 
-
-
 <% elsif params[:id].to_i != current_user.id && @match_sent == nil && @m == nil %>
 
   <%= link_to matches_path(num: params[:id]), method: :post do %>
-  <div class="center">
-    <button type="button" class="btn btn-success, btn">Invite</button>
+  <div class="center" style="text-align: center;" >
+    <button type="button" class="btn btn-success ourbtn">INVITE</button>
   </div>
   <% end %>
 
-
-
 <% elsif params[:id].to_i == current_user.id %>
-
-
 
   <%= link_to destroy_user_session_path do %>
 
@@ -84,12 +72,9 @@
 
 <% end %>
 
-
-
  <!--  color:#B3FF00 ;
   border-color: #B3FF00; -->
 <br>
-
 
 <div class="currentinterests" style="text-align: center; font-weight: bold;">
   <% if params[:id].to_i == current_user.id %>
@@ -105,8 +90,6 @@
   </div>
 <% end %>
 <br>
-
-
 
 <div class="interests" style=" padding: 4px; ">
     <% @user.valid_interest.each do |interest| %>
