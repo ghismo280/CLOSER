@@ -3,7 +3,7 @@
 // }
 .match-container {
   display: flex;
-  height: 25vh;
+  /* height: 25vh; */
   background-color: #F7F7F7;
   margin-bottom: 15px;
   margin-right: 10px;
@@ -15,8 +15,8 @@
 }
 
 .image-accepted-match {
-  height: 100% !important;
-  width: 90% !important;
+  height: auto !important;
+   width: 100% !important;
   float: right;
 }
 
