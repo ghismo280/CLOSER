@@ -7,10 +7,6 @@ class Interest < ApplicationRecord
     display: "I'm looking for a flatmate"
     },
     {
-    question: "Do you have a house to share?", # question_id = 1
-    display: "I have a house to share"
-    },
-    {
     question: "Are you looking for a parking spot to rent?", # question_id = 2
     display: "I'm looking for a parking spot to rent"
     },
