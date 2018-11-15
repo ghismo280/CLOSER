@@ -17,7 +17,7 @@ User.delete_all
 
 # This is a way to generate random coordinates in a certain range (padding)
 HERE = [45.465803, 9.174176]
-PADDING = 0.5
+PADDING = 0.2
 
 def generate_coordinate
   latitudes = [HERE[0] - rand(0..PADDING), HERE[0] + rand(0..PADDING)]
