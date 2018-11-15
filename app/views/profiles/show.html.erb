@@ -2,7 +2,7 @@
 
 <br>
   <div class="avatar text-center" >
-    <%= image_tag @user.picture_url if @user.picture_url%>
+    <%= image_tag @user.picture_url, height: 250, width: 250, crop: :fill, gravity: :face if @user.picture_url%>
     <%= cl_image_tag(@user.photo) %>
   </div>
 </div>
@@ -28,24 +28,35 @@
 
 <% if (@match_sent && @match_sent.photo.present?) || (@m && @m.photo.present?) %>
 
+  <p> " FIND USERNAME "</p>
+  <div class="newpic" style="text-align: center; border: 1px solid #CEFF1A;">
+  <%= cl_image_tag @m.photo, height: 400, width: 400, crop: :fill, gravity: :face if @m%>
+  <br>
+  </div>
+  <div class="newpic" style="text-align: center; border: 1px solid #CEFF1A;">
+  <%= cl_image_tag @match_sent.photo, height: 400, width: 400, crop: :fill, gravity: :face if @match_sent%>
+  <br>
+  </div>
+  <div class="inst" style="text-align: center;"> <%= @m.instructions  if @m%>
+    <br>
+  <p>"<%= @match_sent.instructions if @match_sent%>"</p>
+  </div>exit
 
-  <%= cl_image_tag @m.photo if @m%>
-  <%= cl_image_tag @match_sent.photo if @match_sent%>
-  <h3><%= @m.instructions if @m%></h3>
-  <h3><%= @match_sent.instructions if @match_sent%></h3>
 
-
-
+  <div class="t">
 <% elsif @match_sent && @match_sent.status == 'accepted' %>
 
-
+<div class="to-user-pic" align="middle">
   <%= simple_form_for(@match_sent) do |f| %>
     <%= f.input :photo %>
     <%= f.input :photo_cache, as: :hidden %>
+    <div class="instrucciones">
     <%= f.input :instructions %>
+    </div>
     <%= f.hidden_field :from_user_number, value: params[:id] %>
-    <%= f.submit %>
+    <%= f.button :submit, "MATCH!", class: "ourbtn" %>
   <% end %>
+  </div>
 
 
 
@@ -66,7 +77,7 @@
   <%= link_to destroy_user_session_path do %>
 
     <div class="center" style="text-align: center;">
-      <button type="button" class="btn btn-danger" style="margin-bottom: 10px;">LOG OUT</button>
+      <button type="button" class="btn btn-danger ourbtn" style="margin-bottom: 10px;">LOG OUT</button>
     </div>
 
   <% end %>
@@ -97,7 +108,7 @@
 
 
 
-<div class="interests" style="padding: 4px;">
+<div class="interests" style=" padding: 4px; ">
     <% @user.valid_interest.each do |interest| %>
 
     <div class="interestbar">

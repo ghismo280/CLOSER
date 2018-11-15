@@ -1,6 +1,6 @@
 <div class="container">
 <h3><center>REGISTER</center></h3>
-
+<br>
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {:multipart => true}) do |f| %>
   <%= f.error_notification %>
 
@@ -31,7 +31,7 @@
     <%= f.input :photo_cache, as: :hidden %>
   </div>
 
-
+<br>
   <div class="form-actions" align="middle">
     <%= f.button :submit, "SIGN UP", id: "button_signup_user", disabled: "disabled", class: "ourbtn" %>
   </div>
