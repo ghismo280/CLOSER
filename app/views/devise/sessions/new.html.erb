@@ -1,9 +1,10 @@
-
-<h2>Log in</h2>
-
+<div class="container">
+<!-- <h2>Log in</h2> -->
+<br>
+<br>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
+  <div class="form-inputs" align="middle">
     <%= f.input :email,
                 required: false,
                 autofocus: true,
@@ -14,11 +15,12 @@
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
   </div>
 
-  <div class="form-actions">
+  <div class="form-actions" align="middle">
     <%= f.button :submit, "Log in" %>
   </div>
 <% end %>
 
+</div>
 
 <!-- <form class="simple_form new_user" id="new_user" novalidate="novalidate" action="/users/sign_in" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="URJlif/E3Noz+V9dNKA6m0M/iCyUdCKv/TBDZQu50QQdtgu82hAngNb3DmO1pLkJsBeDXRCJ8BKyFCJXRsk8nw==" />
   <div class="form-inputs">
