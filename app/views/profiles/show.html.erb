@@ -7,9 +7,9 @@
   </div>
 </div>
 
-<div class="info" style="font-size: 12px">
-  <div class="username" >
-    <span class="username-detail"><%="#{@user.username.upcase}" %></span>
+<div class="info" style="font-size: 12px;">
+  <div class="username" style="text-align: center;">
+    <span class="username-detail" style="font-size: 12px;"><%="#{@user.username.upcase}" %></span>
     <%="#{Date.today.year - @user.birthdate.year} yo" if @user.birthdate %>
   </div>
 
@@ -85,7 +85,7 @@
 </div>
 
 <% if params[:id].to_i == current_user.id %>
-  <div class="lookingfor" style="margin-left: 3vh; font-size: 12px">
+  <div class="lookingfor" style="margin-left: 3vh; font-size: 16px">
     I'm looking for...
   </div>
 <% end %>
