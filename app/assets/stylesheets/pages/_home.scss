@@ -57,33 +57,4 @@
   margin-bottom: 30px;
 }
 
-.btn {
-  color: black;
-  // padding: 10px 15px;
-  font-weight: lighter;
-  background: #B3FF00;
-  border-color: #B3FF00;
-  width: 30vw;
-  border-radius: 2px;
-}
 
-.log-btn {
-  position: absolute;
-  top: 78vh;
-  left: 35vw;
-  display: flex;
-  justify-content: space-around;
-}
-
-.sign-btn {
-  position: absolute;
-  top: 88vh;
-  left: 35vw;
-  display: flex;
-  justify-content: space-around;
-}
-
-.sign-btn .btn {
-  background-color: white !important;
-  border-width: 2px;
-}
