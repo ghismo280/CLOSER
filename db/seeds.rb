@@ -180,7 +180,7 @@ Match.create!(
     )
 
 Match.create!(
-    from_user: angelo,
+    from_user: caparezza,
     to_user: marco
     )
 
