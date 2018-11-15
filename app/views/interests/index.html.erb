@@ -6,7 +6,7 @@
 <div class="choose">CHOOSE YOUR INTERESTS</div>
 <br>
     <% counter = 0 %>
-      <% Interest::QUESTIONS.each do |question| %>
+      <% ::Interest::QUESTIONS.each do |question| %>
         <div class="interestbar">
 
           <%= question[:question] %>
