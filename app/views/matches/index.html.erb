@@ -1,4 +1,4 @@
-<h1 class="text-center">MATCHES</h1>
+<h3 class="text-center">MATCHES</h3>
 
 <%# if !@matches_to_logged.empty? %>
 <!-- <h1 class="text-center">REQUESTS</h1>
@@ -14,8 +14,11 @@
       </div>
       <div class="right-content">
         <%= link_to profile_path(lol.from_user.id), class: "username-right-content" do%>
-        <%= lol.from_user.username %>
+      <strong><%= lol.from_user.username %></strong>
+
+
         <% end %>
+        <%="#{Date.today.year - lol.from_user.birthdate.year} yo" if lol.from_user.birthdate %>
         <div class="btn-send-instructions">WAIT FOR INSTRUCTIONS</div>
       </div>
     </div>
@@ -28,7 +31,9 @@
       </div>
       <div class="right-content">
         <%= link_to profile_path(lol.from_user.id), class: "username-right-content" do%>
-        <%= lol.from_user.username %>
+
+      <strong><%= lol.from_user.username %></strong>
+
         <div class="btn-send-instructions">GO TO INSTRUCTIONS</div>
         <% end %>
       </div>
@@ -37,7 +42,7 @@
   <% end %>
 <% end %>
 
-<h1 class="text-center">REQUESTS</h1>
+<h3 class="text-center">REQUESTS</h3>
 
 
 <% @matches_to_logged.where(status: "pending").each do |lol| %>
@@ -47,8 +52,12 @@
     <%= cl_image_tag lol.from_user.photo, height: 250, width: 250, crop: :fill, gravity: :face, class: "image-accepted-match" %>
   </div>
   <div class="right-content-pending">
-    <a href="<%= profile_path(lol.from_user.id) %>" class="username-right-content"><%= lol.from_user.username %></a>
+    <a href="<%= profile_path(lol.from_user.id) %>" class="username-right-content">
 
+      <strong><%= lol.from_user.username %></strong>
+
+      </a>
+      <%="#{Date.today.year - lol.from_user.birthdate.year} yo" if lol.from_user.birthdate %>
     <%= link_to match_path(match: {from_user_number: lol.from_user.id }, status: "accepted", id: lol.from_user.id), method: :patch do %>
       <div class="btn-send-instructions accept">ACCEPT</div>
     <% end %>
@@ -61,7 +70,7 @@
 <% end %>
 
 <% if !@matches_from_logged.empty? %>
-  <h1 class="text-center">SENT INVITATIONS</h1>
+  <h3 class="text-center">SENT INVITATIONS</h3>
 <% end %>
 
 <% @matches_from_logged.each do |lol| %>
@@ -74,7 +83,11 @@
       </div>
       <div class="right-content">
       <%= link_to profile_path(lol.to_user.id), class: "username-right-content" do%>
-      <%= lol.to_user.username %>
+
+      <strong><%= lol.to_user.username %></strong>
+
+
+              <%="#{Date.today.year - lol.from_user.birthdate.year} yo" if lol.from_user.birthdate %>
       <div class="btn-send-instructions">MATCHED</div>
       <% end %>
       </div>
@@ -88,7 +101,11 @@
       </div>
       <div class="right-content">
       <%= link_to profile_path(lol.to_user.id), class: "username-right-content" do%>
-      <%= lol.to_user.username %>
+
+            <strong><%= lol.to_user.to_user.username %></strong>
+
+
+              <%="#{Date.today.year - lol.from_user.birthdate.year} yo" if lol.from_user.birthdate %>
       <div class="btn-send-instructions">SEND INSTRUCTION</div>
       <% end %>
       </div>
@@ -102,7 +119,11 @@
       </div>
       <div class="right-content">
       <%= link_to profile_path(lol.to_user.id), class: "username-right-content" do%>
-      <%= lol.to_user.username %>
+
+                  <strong><%= lol.to_user.username %></strong>
+
+
+              <%="#{Date.today.year - lol.from_user.birthdate.year} yo" if lol.from_user.birthdate %>
       <div class="btn-send-instructions">REQUEST SENT</div>
       <% end %>
       </div>
