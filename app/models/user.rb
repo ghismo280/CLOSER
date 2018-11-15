@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :to_user_matches, class_name: 'Match', foreign_key: 'to_user_id'
   has_many :interests
 
-  validates_presence_of :latitude, :longitude
+  # validates_presence_of :latitude, :longitude
 
   geocoded_by :address
 
