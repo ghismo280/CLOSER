@@ -1,0 +1,43 @@
+.card {
+  background-color: #F7F7F7;
+/*   width: 160px; */
+  height: 210px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+
+.card-username {
+  margin-top: 11px;
+  margin-left: 6px;
+  text-decoration: none;
+  color: #000000c4;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.card-description {
+  display: flex;
+  align-items: baseline;
+}
+
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+  background: black;
+  opacity: 0;
+}
+
+.card-age {
+  margin-left: 3px;
+  text-decoration: none;
+  color: #6d6d6d;
+  font-size: 14px;
+}
+
+.refresh-btn {
+  margin-bottom: 15px;
+}
