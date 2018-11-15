@@ -2,7 +2,7 @@
   <div class="navbar-back-side-icon">
     <div class="navbar-element">
       <%= link_to matches_path do%>
-      <i class="fas fa-history history" ></i>
+      <i class="fas fa-history history <%= 'active-icon' if @match_icon %>" ></i>
       <% end %>
     </div>
   </div>
@@ -16,14 +16,14 @@
   <div class="navbar-back-side-icon">
     <div class="navbar-element">
       <%= link_to "/profiles/#{current_user.id}", class: "profile" do %>
-      <i class="far fa-user user-bar"></i>
+      <i class="far fa-user user-bar <%= 'active-icon' if @profile_icon %>"></i>
       <% end %>
     </div>
   </div>
 
 </div>
 <div class="navbar-links">
-    <p>MATCHES</p>
+    <p class=<%= 'active-icon' if @match_icon %>>MATCHES</p>
     <p>DISCOVER</p>
-    <p>PROFILE</p>
+    <p class=<%= 'active-icon' if @profile_icon %>>PROFILE</p>
 </div>

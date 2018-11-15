@@ -1,6 +1,7 @@
 class MatchesController < ApplicationController
 
   def index
+    @match_icon = true
     @matches_from_logged = Match.where(from_user: current_user)
     @matches_to_logged = Match.where(to_user: current_user)
   end
