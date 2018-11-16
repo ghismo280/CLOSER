@@ -7,9 +7,12 @@
 <br>
     <% counter = 0 %>
       <% ::Interest::QUESTIONS.each do |question| %>
-        <div class="interestbar">
+        <div class="interestbar" style="text-align: left;">
 
           <%= question[:question] %>
+
+          <br>
+          <br>
 
           <input type="radio" id="questions_<%= counter %>" name="questions[<%= counter %>]" value="true">
           <label for="questions_<%= counter %>">Yes</label>
@@ -17,14 +20,20 @@
           <input type="radio" name="questions[<%= counter %>]" value="false">
           <label for="questions_<%= counter %>">No</label>
 
+          <br>
         <% counter += 1 %>
       </div>
 
+      <br>
       <% end %>
       <br>
 
   <input type="submit" value="SAVE" class="btn btn-danger" style="margin-bottom: 10px;">
 
+  <br>
+  <br>
+  <br>
+  <br>
 <% end %>
 </div>
 </div>
