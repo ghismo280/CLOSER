@@ -102,8 +102,7 @@
       <div class="right-content">
       <%= link_to profile_path(lol.to_user.id), class: "username-right-content" do%>
 
-            <strong><%= lol.to_user.to_user.username %></strong>
-
+            <strong><%= lol.to_user.username %></strong>
 
               <%="#{Date.today.year - lol.from_user.birthdate.year} yo" if lol.from_user.birthdate %>
       <div class="btn-send-instructions">SEND INSTRUCTION</div>
