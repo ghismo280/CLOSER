@@ -12,9 +12,3 @@ Rails.application.routes.draw do
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
-  # get 'pages/index', to: 'pages#index'
-  # get '/profile/:id', to: 'pages#profile'
-  # post '/choose', to: 'pages#choose'
-  # post '/matches/accept', to: 'matches#accept'
-  # post '/matches/decline', to: 'matches#decline'
-
