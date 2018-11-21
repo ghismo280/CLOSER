@@ -4,10 +4,7 @@ class PagesController < ApplicationController
   def home
   end
 
-  def first
-  end
-
-  def second
+  def letsencrypt
   end
 
 end

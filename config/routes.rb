@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {:registrations => "users/registrations"}
 
   root to: 'pages#home'
+  get '/.well-known/acme-challenge/ZDLw-g3eCUX8dmLDu7vRJqepIUANQPcDxivEOE_gNcE', to: 'pages#letsencrypt'
   resources :matches, only: [:index, :create, :update]
   resources :interests, only: [:index, :create]
   resources :profiles, only: [:index, :show] do
@@ -9,8 +10,6 @@ Rails.application.routes.draw do
       post "invite"
     end
   end
-  get '.well-known/acme-challenge/H3RpGgXKjihLo8atImuUqu_xaBaWQayfCtTJejlCa1E', to: 'pages#first'
-  get '.well-known/acme-challenge/0RPkBYMJNQI0YfmNiR3uSx5Qi-aUV_rkITXDcoqEJh0', to: 'pages#second'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
   # get 'pages/index', to: 'pages#index'
