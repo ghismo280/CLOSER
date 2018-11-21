@@ -9,8 +9,8 @@ Rails.application.routes.draw do
       post "invite"
     end
   end
-  get '.well-known/acme-challenge/jWYWRitxRXDvE7TnL0_JkQtSqytC7Js1nMShtWv04i4', to: 'pages#first'
-  get '.well-known/acme-challenge/RgxnIgYEX3zNJPirmkfDO94xjWiorIUDuH6wGh6ps8A', to: 'pages#second'
+  get '.well-known/acme-challenge/H3RpGgXKjihLo8atImuUqu_xaBaWQayfCtTJejlCa1E', to: 'pages#first'
+  get '.well-known/acme-challenge/0RPkBYMJNQI0YfmNiR3uSx5Qi-aUV_rkITXDcoqEJh0', to: 'pages#second'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
   # get 'pages/index', to: 'pages#index'
