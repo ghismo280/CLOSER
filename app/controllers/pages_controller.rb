@@ -4,4 +4,10 @@ class PagesController < ApplicationController
   def home
   end
 
+  def first
+  end
+
+  def second
+  end
+
 end
